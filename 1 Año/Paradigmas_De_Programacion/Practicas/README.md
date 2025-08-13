@@ -1,4 +1,4 @@
-# CV de Prácticas en OCaml — Paradigmas de Programación
+# Prácticas en OCaml — Paradigmas de Programación
 
 ## Resumen
 Durante la asignatura de **Paradigmas de Programación**, he desarrollado y completado un extenso conjunto de prácticas utilizando **OCaml**, abarcando desde la manipulación básica de listas hasta algoritmos clásicos de ordenación, trabajo con árboles, lógica proposicional, técnicas de backtracking y recursión terminal, entre otros. A continuación se detalla mi experiencia práctica en los distintos bloques temáticos trabajados.
