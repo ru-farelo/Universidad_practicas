@@ -1,122 +1,121 @@
-# java-labs: Creating the environment for Java development and Git - 2020-2021
+# Servidor Web HTTP - Prácticas de Redes
 
-## Netcat (nc)
-- Windows OS
-    - Download MobaXterm from [here] (https://download.mobatek.net/2062020111930940/MobaXterm_Portable_v20.6.zip) and extract the content. No installation is needed. Netcat is available if you click on "Start local terminal".
+## 📋 Descripción del Proyecto
 
-- Linux OS
-    - Netcat should already be installed on your system.
+Este proyecto implementa un **servidor web HTTP multihilo** desarrollado en Java como parte de las prácticas de la asignatura de Redes de la Universidad de A Coruña (UDC). El servidor es capaz de procesar peticiones HTTP concurrentemente y servir contenido estático y dinámico.
 
-## IntelliJ IDEA Community Edition
+## 🚀 Características Principales
 
-- Download IntelliJ IDEA from [here](https://www.jetbrains.com/es-es/idea/download/) and install it using default options.
+- **Servidor HTTP multihilo**: Manejo concurrente de múltiples peticiones de clientes
+- **Arquitectura orientada a objetos**: Implementación modular con separación clara de responsabilidades
+- **Gestión de contenido estático**: Servir archivos HTML, imágenes y otros recursos
+- **Servlets dinámicos**: Implementación de servlets personalizados para contenido dinámico
+- **Configuración flexible**: Sistema de configuración basado en archivos properties
+- **Gestión de errores HTTP**: Páginas de error personalizadas (400, 403, 404)
+- **Sistema de logging**: Registro de accesos y errores del servidor
 
-## Git 
+## 🏗️ Arquitectura del Sistema
 
-- Download Git from [here](https://git-scm.com/downloads) and install it using default options
+### Componentes Principales
 
-> Note that for instance in Ubuntu systems you could download and install it by simply executing the following:
-  
-```shell
-    sudo apt-get install git
+- **`WebServer.java`**: Clase principal que gestiona el socket servidor y acepta conexiones
+- **`ServerThread.java`**: Hilo de trabajo que procesa cada petición HTTP individualmente
+- **`ServerUtils.java`**: Utilidades comunes para el procesamiento de peticiones
+- **`MiniServlet.java`**: Interfaz base para servlets dinámicos
+- **Servlets personalizados**: Implementaciones específicas para diferentes funcionalidades
+
+### Estructura de Directorios
+
+```
+src/
+└── es/udc/redes/webserver/     # Código fuente del servidor
+p0-files/                       # Recursos de la práctica 0
+p1-files/                       # Recursos de la práctica 1
+├── error/                      # Páginas de error HTTP
+├── log/                        # Archivos de registro
+└── javadoc/                    # Documentación generada
 ```
 
-- Basic configuration
-    - In Windows OS, the following commands should be executed inside git-bash (`$GIT_HOME/git-bash.exe`):
-    
-```shell
-    git config --global user.email "<user-login>@udc.es"
-    git config --global user.name "<user-name>"
+## 🛠️ Stack Tecnológico
+
+- **Lenguajes**: Java SE 8+
+- **Redes**: Sockets TCP/IP, Protocolo HTTP/1.1
+- **Concurrencia**: Java Threading API, Programación multihilo
+- **Patrones de Diseño**: Singleton, Observer, Template Method
+- **Herramientas**: IntelliJ IDEA, Maven/Gradle compatible
+- **Control de Versiones**: Git, GitHub
+- **Testing**: JUnit (framework preparado)
+- **Documentación**: JavaDoc
+
+## ⚙️ Configuración y Ejecución
+
+### Requisitos Previos
+
+- Java JDK 8 o superior
+- IntelliJ IDEA (recomendado)
+- Git
+
+### Configuración del Servidor
+
+El servidor se configura mediante el archivo `p1-files/server.properties`:
+
+```properties
+PORT=1111
+DIRECTORY_INDEX=index.html
+ALLOW=.html .gif .jpeg .jpg .png .txt
+TIMEOUT=300
 ```
 
-> The following line illustrates how to set Sublime as the Git default editor, but you can use any other editor installed in your OS (you can download Sublime Text editor from [here](https://www.sublimetext.com/3))
-      
-```shell
-    >Windows OS
-	git config --global core.editor "'C:\Program Files\Sublime Text 3\sublime_text.exe' -w"
-	
-    >Linux OS
-	git config --global core.editor "subl -w"
+### Compilación y Ejecución
+
+```bash
+# Compilar el proyecto
+javac -d out src/es/udc/redes/webserver/*.java
+
+# Ejecutar el servidor
+java -cp out es.udc.redes.webserver.WebServer
 ```
 
-- [Optional]  Autocompletion utility for Git in Linux OS systems:
-    - Follow instructions from [https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion)
+## 🔧 Funcionalidades Implementadas
 
-### Creation and configuration of SSH Keys
+### Práctica 0 (P0)
+- Configuración del entorno de desarrollo Java
+- Familiarización con Git y GitHub
+- Estructura básica del proyecto
 
-- From the git-bash interpreter in Windows OS systems
-> Generate SSH keys in the default path ($HOME/.ssh) and with default names
-      
-```shell
-    ssh-keygen -t rsa -b 4096 -C "<user-login>@udc.es"
-```    
-    
-- Open the browser and navigate to [https://github.com/settings/keys](https://github.com/settings/keys)
-- In the "Key" field, copy the public key, i.e, content of file `$HOME/.ssh/id_rsa.pub`
-- In the "Title" field, specify a name for the key
-- Click on the "Add key" button
+### Práctica 1 (P1) - Servidor HTTP Completo
+- **Servidor HTTP multihilo**: Pool de threads para manejo concurrente de peticiones
+- **Parser HTTP**: Análisis y procesamiento de headers y métodos HTTP
+- **Gestión de recursos**: Servicio de archivos estáticos con MIME types
+- **Manejo de errores**: Implementación completa de códigos de estado HTTP (200, 400, 403, 404)
+- **Sistema de logging**: Registro detallado de accesos y errores con timestamps
+- **Servlets dinámicos**: Arquitectura extensible para contenido generado dinámicamente
+- **Configuración externa**: Sistema de propiedades para parámetros del servidor
 
-- Try SSH connectivity against the Git server and add it to the list of known hosts
-  > Answer "yes" to the question "Are you sure you want to continue connecting (yes/no)?"
-   
-```shell
-    ssh -T git@github.com
-```   
+## 📈 Competencias Técnicas Demostradas
 
-## Creating your project
+- **Programación de sistemas**: Implementación de servidor de red de alto rendimiento
+- **Programación concurrente**: Gestión avanzada de threads, sincronización y pool de hilos
+- **Arquitectura de software**: Diseño modular con principios SOLID y patrones de diseño
+- **Protocolos de red**: Implementación completa del protocolo HTTP/1.1 desde cero
+- **Java avanzado**: APIs de red (java.net), I/O streams, manejo de excepciones
+- **DevOps básico**: Configuración de entornos, gestión de dependencias
+- **Metodologías**: Desarrollo incremental, testing, documentación técnica
 
-### Create Git repository in Github web site
+## 🎯 Logros Técnicos Alcanzados
 
-- Open the browser, navigate to https://github.com/ and log in.
+Este proyecto demuestra la capacidad de:
+- **Arquitectura de sistemas**: Diseñar e implementar un servidor web completo desde cero
+- **Programación concurrente**: Aplicar patrones de concurrencia en aplicaciones de producción
+- **Protocolos de comunicación**: Dominar la implementación de estándares de Internet
+- **Código mantenible**: Desarrollar software escalable siguiendo buenas prácticas
+- **Herramientas profesionales**: Gestionar proyectos con Git y IDEs especializados
+- **Resolución de problemas**: Implementar soluciones robustas para sistemas distribuidos
 
-- Click on https://classroom.github.com/a/Z8xbV4cY
-  - Accept java-labs assignment. 
-  - Refresh browser after some seconds.
-  - Click on your repository link.   
+---
 
-### Initializing your local Git repository
+## 🏛️ Contexto Académico
 
-```shell
-	git clone git@github.com:redes-java-labs/java-labs-<user-login>.git
-```
+**Universidad de A Coruña (UDC)** | Facultad de Informática | Redes (2020-2021)
 
- NOTE that &lt;user-login&gt; must be changed by your user login.
-
-### Working on your Git repository
-
-- These are the basic commands to use when a change has been made in your project. Although "git status" is not mandatory, it can be very useful. The same happens with "git log". 
-
-```shell
-	cd java-labs-<user-login>
-	git status
-	git add . 
-	git commit -m "commit message"	
-	git push origin master
-	git log
-```
-
--  In order to create a tag, previous commands must be followed by these ones.
-
-```shell	
-	git tag -a <tag-name> -m "tag message"	
-	git push origin <tag-name>
-```
-
-NOTE that it is important to add -a option to create an annotated tag (otherwise  a lightweight tag will be created). 
-
-### Load the project in IntelliJ IDEA
-
-- Click on "File" > "New" > "Project from Existing Sources" menu option.
-- Select "java-labs-&lt;user-login&gt;" folder as the folder to import.
-- Click on "Ok" button.
-- Choose "Create project from existing sources" and click on "Next" button. 
-- Set "java-labs-&lt;user-login&gt;" as "Project Name". The default values are correct for the remaining fields. NOTE that IntelliJ IDEA project should be created within java-labs-&lt;user-login&gt; (do not change the default value for the project location). This way a .iml file, an out/ folder (with .class files) and a .idea folder (with IntelliJ configuration) will appear within java-labs-&lt;user-login&gt;.
-- Mark src folder and click on "Next" button. 
-- Click on "Next" button until "Finish" button will appear, and click on "Finish" button.
-
-### Modify .gitignore
-
-- Go to java-labs-&lt;user-login&gt;/ folder.  
-- The .out folder should not be versioned, but .iml file and .idea should. In consequence, it is necessary to check .gitignore files (there are one within java-labs/ and another withing java-labs/.idea) in order to version .iml file and the .idea folder (check that workspace.xml is included).
-
-
+*Proyecto desarrollado aplicando metodologías de ingeniería de software y estándares industriales.*
