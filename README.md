@@ -1,8 +1,9 @@
 # 🎓 Prácticas y Proyectos – Ingeniería Informática
 
-Bienvenido/a a mi "caja fuerte" de prácticas y proyectos desarrollados a lo largo de mis estudios de **Ingeniería Informática** en la **Universidade da Coruña (UDC)**.  
-Aquí encontrarás desde mis primeros pasos escribiendo código hasta proyectos más elaborados, organizados año a año para que puedas ver la evolución.
+Bienvenido/a a mi "caja fuerte" de **prácticas y proyectos de programación** desarrollados a lo largo de mis estudios de **Ingeniería Informática** en la **Universidade da Coruña (UDC)**.  
+Aquí encontrarás desde mis primeros pasos escribiendo código hasta desarrollos más elaborados, organizados año a año para que puedas ver la evolución.  
 
+> 📂 **Importante:** Este repositorio no contiene apuntes teóricos, sino código y proyectos prácticos de programación.
 > 📂 Estructura del repositorio: 4 carpetas, una por cada curso académico.
 
 ---
