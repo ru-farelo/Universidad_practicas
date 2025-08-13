@@ -1,0 +1,53 @@
+let rec insert x = function
+[] -> [x]
+|h::t -> if x <= h then x::h::t 
+else h::insert x t ;;
+
+let rec isort = function
+[] -> [] 
+| h::t insert h (isort t);;
+
+let t_append l1 l2 = List.rev_append (List.rev l1 ) l2;;
+
+(*Uso de try ... with *)
+
+let append' l1 l2 = try List.append l1 l2 with
+Stack_overflow -> t_append l1 l2;;
+
+
+let tl ' l = try List.tl l with
+Failure _ -> [];;
+
+
+(*Inserccion por ordenacion y hacerlas terminales*)
+(*Antes de hacer el cons(::) del insert*)
+
+let insert' x l = let rec aux front = function
+			[] -> List.rev (x::front) 
+			| h::t -> if x <= h then List.rev_append front (x::h::t)
+			else aux (h::front) t 
+			in aux [] l ;;
+			
+			
+
+let isort' l = let rec aux acc = function
+			[] -> acc 
+			| h::t aux (insert' h acc) t 
+			in aux [] l ;;
+			
+			
+(*ordenar los string por numero de caracteres*)
+
+let insert_ord ord l = function
+			[] -> List.rev (x::front) 
+			| h::t -> if ord x h then x::h::t
+			else h::insert ord x t  ;;
+
+
+let isort_ord l =function
+			[] -> []
+			| h::t insert ord h (i(isort ord t);;
+			
+		
+
+

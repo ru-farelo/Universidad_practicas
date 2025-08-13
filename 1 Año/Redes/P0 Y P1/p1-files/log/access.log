@@ -1,0 +1,64 @@
+Petition: GET /fic.png HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 04/03/2022 17:43:30 CET
+State code: 200
+Size: 13320
+
+
+
+Petition: HEAD /index.html HTTP/1.0
+IP address: 127.0.0.1
+Date: 07/03/2022 15:52:31 CET
+State code: 200
+Size: 216
+
+
+
+Petition: GET / HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 15:54:32 CET
+State code: 200
+Size: 858
+
+
+
+Petition: GET / HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 15:55:39 CET
+State code: 200
+Size: 216
+
+
+
+Petition: GET /favicon.ico HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 15:55:39 CET
+State code: 200
+Size: 894
+
+
+
+Petition: GET / HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 15:56:21 CET
+State code: 304
+Size: 0
+
+
+
+Petition: GET /index.html HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 16:00:18 CET
+State code: 200
+Size: 216
+
+
+
+Petition: GET /index.html HTTP/1.1
+IP address: 0:0:0:0:0:0:0:1
+Date: 07/03/2022 16:00:26 CET
+State code: 304
+Size: 0
+
+
+

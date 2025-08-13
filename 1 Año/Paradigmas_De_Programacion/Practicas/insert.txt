@@ -1,0 +1,16 @@
+let rec insert x l = match l with
+[] -> [x]
+| h::t -> if x <= h then x::l else h :: insert x t ;;
+
+
+(*Es polimorfica*))
+let rec isort = function
+[] -> []
+| h::t -> insert h (isort t);;
+
+(*Funcion que calcule el tiempo que tarda una function ejecutarse *)
+
+(* Sys time y le resta un numero*)
+let crono f x = 
+let t = Sys.time () in 
+f x ; Sys.time () -. t;;

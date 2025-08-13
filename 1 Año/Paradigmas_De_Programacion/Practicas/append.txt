@@ -1,0 +1,51 @@
+(*List.init hace una lista hasta el numero que indique*)
+(* Una funcion que reuna dos listas sin importar el orden parecida a append pero no es la misma, sino que es el rev_append*)
+(*Ordenacion pila*)
+let rec append' l1 l2 = match l1 with
+[] -> l2
+|h::t append' t (h::l2);;
+
+let rev l =rev_append l [];;
+
+let tail_appen l1 l2 = rev_append (rev l1) l2;; (*tarda el doble que el append aunque haga lo mismo*)
+
+let rec fold_left op a =function
+[] -> a
+|h::t -> fold_left op (op a h) t;;
+
+
+(*dad una lista de enteros que devuelva la suma de todos los valores de la lista*)
+
+let rec sumlist =  function
+[] -> 0
+|h::t -> h + sumlist t ;;
+
+let sumlist l = fold_left (+) 0 l;;
+
+let length l = fold_left (function s -> funcion _ -> s + 1) 0 l;;
+
+(*function x -> funcion y -> <e> es igual que poner fun si las funciones tienen un solo caso *)
+let length l = fold_left (fun s _ -> s + 1) 0 l;;
+
+let rec lmax = funcion
+h::[] -> h
+|h::t -> max h (lmax t);;
+
+let lmax (h::t) = fold_left max h t;;
+
+
+let last (h::t) = fold_left (fun _ y -> y) h t;;
+
+let rev l = fold_left (fun l' x  -> x::l') [] l ;;
+
+
+let rev_append l1 l2 = fold_left (fun l x  -> x::l) l2 l1 ;;
+
+
+(*Esta tambien vale como definicion de rev_append*)
+let rev_append  = fold_left (fun l x  -> x::l) []  ;;
+
+
+
+
+

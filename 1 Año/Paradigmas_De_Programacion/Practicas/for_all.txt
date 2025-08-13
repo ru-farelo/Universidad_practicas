@@ -1,0 +1,9 @@
+(*El fold recorre toda la lista*)
+let for_all f l = fold_left (fun b x -> b && f x) true l;;
+
+
+(*El for si se encuentra un caso falso ya para*)
+let rec for_all f = function 
+[] -> true 
+|h::t -> f h && for_all f t
+|h::t -> false;;

@@ -1,0 +1,134 @@
+(*El problema de las ocho reinas para cualquier dimension*)
+
+(*El backtraking es buscar las posibilidades recursivamente*)
+
+	
+(*Definimos funciones auxiliares para saber si las reinas se pueden comer mutuamente*)
+
+let come (i1,j1) (i2,j2) =
+	i1 = i2 || j1 = j2 || abs (i2-i1) = abs (j2-j1);;
+
+(*paso dos pares come (1,2) (1,4) devuelve true *) 
+
+(*Mirar la compatibilidad, si no hay ninguna con la se come*)
+
+let compatible p l =
+		not (List.exists (come p) l);;
+		
+		
+(* compatible (3,1) [(1,2);(2,4)] devuelve true *)
+
+
+(*queens : int -> (int * int) list  solo da una solucion posible , no todas*)
+
+let queens n = 
+		let rec completar path (i,j)=
+			if i > n then path 
+			else if j > n then raise Not_found 
+			else if compatible (i,j) path 
+			then try completar ((i,j)::path) (i+1,1) with
+				Not_found -> completar path (i,j+1)
+			else completar path (i,j+1)
+			in completar [] (1,1);;
+			
+
+(*queens 4*)
+
+
+
+
+/// Dia 2 Con esto
+
+(* Division sin lanzar una excepcion*)
+
+let div x y = 
+if y = 0 then None 
+else Some (x / y)
+
+let div x y =
+try Some (x/y) with
+Division_by_zero;;
+
+
+(* hd capturando la excepcion*)
+
+let hd' l =
+try Some (List.hd l)
+with Failure _ -> None ;;
+
+
+(*Lo mismo pero con queens*)
+
+let queens n = 
+		let rec completar path (i,j)=
+			if i > n then Some path 
+			else if j > n then None  
+			else if compatible (i,j) path 
+			then
+			match completar ((i,j)::path) (i+1,1) with
+				None -> Not_found -> completar path (i,j+1)
+				| Some s -> Some s 
+			else completar path (i,j+1)
+			in completar [] (1,1);;
+
+(*Lo mismo pero con una lista de salida pero mas chapuzas*)
+let queens n = 
+		let rec completar path (i,j)=
+			if i > n then [path]
+			else if j > n then []
+			else if compatible (i,j) path 
+			then
+			match completar ((i,j)::path) (i+1,1) with
+				[] -> completar path (i,j+1)
+				| l -> l (*Para que no salga el warning*)
+			else completar path (i,j+1)
+			in completar [] (1,1);;
+
+
+(*Calcular queens pero que devuelva todas las soluciones*)
+
+let all_queens n = 
+		let rec completar path (i,j)=
+			if i > n then [path]
+			else if j > n then []
+			else if compatible (i,j) path 
+			then completar ((i,j)::path) (i+1,1) @ 
+			     completar path (i,j+1)
+			else completar path (i,j+1)
+		in completar [] (1,1);;
+
+
+(*contar el numero de listas*)
+
+let nu_queens n = 
+		let rec completar path (i,j)=
+			if i > n then 1
+			else if j > n then 0
+			else if compatible (i,j) path 
+			then completar ((i,j)::path) (i+1,1) +
+			     completar path (i,j+1)
+			else completar path (i,j+1)
+		in completar [] (1,1);;
+
+(*Para comprobar #List.map nu_queens (List.init 13 abs) *)
+
+
+(*Imprimir las soluciones*) (*Revisar*)
+
+let rec print_sol = function 
+[] -> print_newline []
+| (_,y)::t -> print_int y ; print_char "";
+		print_sol t;;
+
+
+let print_queens n = 
+		let rec completar path (i,j)=
+			if i > n then print_sol path
+			else if j > n then ()
+			else if compatible (i,j) path 
+			then (completar ((i,j)::path) (i+1,1) +
+			     completar path (i,j+1))
+			else completar path (i,j+1)
+		in completar [] (1,1);;
+
+		

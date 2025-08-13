@@ -1,0 +1,54 @@
+(*constructores *)
+type int_o_no = 
+UnInt of int 
+|NoInt;;
+
+let div m n = match m,n with
+UnInt x, UnInt 0 -> NoInt
+| UnInt x, UnInt y -> UnInt (x / y)
+|_ -> NoInt ;;
+
+
+let (//) = div;;
+
+type booleano = V | F ;;
+
+type dia = Lu | Ma | Mi | Ju | Vi | Sa |Do ;;
+
+let festivo = function
+Do ->  true 
+| _ -> false;;
+
+
+(*Solo constructores variables*)
+
+type otro_int = I if int;;
+
+type name = Name of string;;
+(*Name "Pepe" ;;*)
+
+let saluda (Name s)= "Hola, " ^ s;;
+(*saluda (Name "Pepe") ;;*)
+
+let saluda p = match p with 
+Name s -> "Hola, " ^ s ;;
+
+type int2 = L of int | R of int ;;
+
+type entero = Pos of nat | Neg of nat;;
+
+(*puede ser util como enumerados o hacer listas de dos tipos distintos*)
+type numero = F of float | I of int;;
+
+(*Reunir do tipos en uno *)
+let (++) suma m n = match m,n with 
+I i , I j -> I (i + j)
+| F x , F y -> F (x +. y)
+|I i , F x | F x , I i-> F ( float i +. x);;
+
+type nat = 0 | S of nat ;;
+
+
+
+
+

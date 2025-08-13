@@ -1,0 +1,68 @@
+Definir la funcion producto factorial terminal
+
+let rec pro_fact (p,i) =  (* i >= 0 *)
+	if i = 0 then p 
+	else pro_fact  (p*i, i-1);;
+	
+	
+let fact n = pro_fact (1,n);;
+	
+
+otra manera de pensarlo
+a la curry con patter_maching
+
+let fact n =
+let rec aux p = function
+0 -> p*i
+| n -> aux (p*i) (i-1)
+in aux (1,n);;
+
+lo definimos localmente el factorial de un n , producto cartesiano
+
+let fact n = 
+let rec aux (i,f) =
+if i = n then f 
+else aux (i+1, f * (i+1) )
+in aux (0,1);;
+
+Implementamos el fib localmente de forma recursiva terminal
+
+let fib n =
+let rec aux (i,f,a) =
+if i = n then f 
+else aux (i+1,f+a,f)
+in aux (0,0,1);;
+
+Una funcion que devuelva un max de una lista con patter_maching
+
+let rec lmax = function 
+h::t -> h
+| h::t -> max h (lmax t);;
+
+Lo mismo pero terminal, a la curry
+
+let max l = 
+let rec aux m = function
+[] -> manera
+|h::t -> aux (max m h) t 
+in aux (List.hd l) (List.tl l);;
+
+lo mismo pero optimizado y sin poner el List. y recursiva terminal
+
+let max (h::t) = 
+let rec aux m = function
+[] -> manera
+|h::t -> aux (max m h) t 
+in aux h t ;;
+
+recursiva terminal directa
+
+let rec lmax = function
+h::[] -> h
+|h1::h2::t -> lmax (max h1 h2::t);;
+
+
+
+
+
+

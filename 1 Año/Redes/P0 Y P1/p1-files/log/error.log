@@ -1,0 +1,84 @@
+Petition: GET /fic.pn HTTP/1.1
+IP adress: 0:0:0:0:0:0:0:1
+Date: 04/03/2022 17:43:33 CET
+Error code: 404
+
+
+
+Petition: GET /fic HTTP/1.1
+IP adress: 0:0:0:0:0:0:0:1
+Date: 04/03/2022 17:43:38 CET
+Error code: 404
+
+
+
+Petition: GOT
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:43:51 CET
+Error code: 400
+
+
+
+Petition: GET
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:44:41 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:46:59 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:47:16 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:47:55 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:50:08 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:51:58 CET
+Error code: 400
+
+
+
+Petition: HEAD
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:57:30 CET
+Error code: 400
+
+
+
+Petition: GETO /index HTTP/1.0
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:59:12 CET
+Error code: 400
+
+
+
+Petition: GET /indexxxx.html HTTP/1.0
+IP adress: 127.0.0.1
+Date: 07/03/2022 15:59:56 CET
+Error code: 404
+
+
+

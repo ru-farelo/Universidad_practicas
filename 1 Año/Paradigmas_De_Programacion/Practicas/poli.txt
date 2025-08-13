@@ -1,0 +1,9 @@
+let f a = a ;;
+let h (a,b) = a;;
+let i (a,b) = b;;
+let j a = [a];;
+
+(* para f h i solo prodia escribir una función pero para j 
+podría escribir tantas funciones como elementos tenga la lista
+*)
+
