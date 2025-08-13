@@ -1,0 +1,34 @@
+Semana 1 -> Para la elaboración de la interfaz de la api seguimos como referencia lo explicado en teoría en cuanto al UML, lo diseñamos
+            usando los ejemplos proporcionados en clase por la profesora, básicamente lo que hicimos fue adaptarlo a nuestro diseño.
+Fuentes ->Diseño de la Api: Usamos Balsamic Cloud para el diseño de la API
+          Diagrama de Clases estático : https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+          Diagrama de Clases Dinamico :https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-sequence-diagram/
+
+Semana 2 -> Seguimos como referencia lo explicado en clase , aclaraciones sobre el patrón Provider y las relaciones entre clases del 
+            mismo,También tomamos en cuenta las explicaciones dadas en prácticas de cómo establecer la conexión con el servidor y la 
+            página de conversión de monedas.
+Fuentes -> Para descargar o stub -> https://github.com/nbarreira/fcs-stub
+           Ejemplos de codigo, con tareas proporcionado en clase -> https://udcgal.sharepoint.com/:f:/r/sites/GEI-IPM-614G010222324-
+            IPM1.1/Documentos%20compartidos/IPM%201.1/P2-Resources?csf=1&web=1&e=Fw5PtL
+            Comienzos con flutter , usamos también la página oficial, que muestra ejemplos y cómo empezar con el mismo, así como diseños
+            -> https://docs.flutter.dev/ui/layout/tutorial.
+
+Semana 3 -> Comienzos del código y adaptación del Uml al mismo , Implementacion de la clase Conversion Y Favoritos , diseño de layouts de 
+            móvil y Tablet .Uso de librerías como flutter_device_type para diferenciar cuando se lanza el layout de tablet o movil.Asi    
+            tambien como la librería provider para representar el mismo patron.
+
+Fuentes -> Para la implementacion del navigation bar  -> https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html
+           Para implementar  la estructura de diseño visual básica de Material Design -> 
+           https://api.flutter.dev/flutter/material/Scaffold-class.html
+           Uso de iconos -> https://api.flutter.dev/flutter/widgets/Icon-class.html
+
+Semana 4 -> Comienzo con la elaboración de los test de integración , tanto los casos de una iteración normal por la aplicación como 
+           aquellos en que se produzcan errores estaran contemplados en los test.
+
+Fuentes -> Para empezar hacer los test de integración -> https://docs.flutter.dev/cookbook/testing/integration/introduction
+           
+          Ejemplos de clase -> https://udcgal.sharepoint.com/:u:/r/sites/GEI-IPM-614G010222324- 
+          IPM1.1/Documentos%20compartidos/IPM%201.1/P2-Resources/test.tgz?csf=1&web=1&e=XJecrL
+           
+
+           

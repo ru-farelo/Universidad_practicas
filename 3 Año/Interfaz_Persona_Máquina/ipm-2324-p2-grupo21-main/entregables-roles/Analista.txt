@@ -1,0 +1,27 @@
+Primera semana:
+-Evaluación de rendimiento:
+        *Administrador: 1/5 ,no ha realizado nada referente a la tarea.
+        *Curador-Traductor: 5/5, ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores, además de ayudar al resto del equipo con sus tareas.Esto significa realizar el diseño de la aplicacion.
+        *Analista: 4/5, ha realizado su función y parte de la tarea correctamente, a  tiempo y sin grandes errores. Esto significa corregir la API de la practica anterior.
+Segunda semana:
+-Evaluación de rendimiento:
+        *Administrador: 1/5 ,no ha realizado nada referente a la tarea.
+        *Curador-Traductor: 4/5, ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores, además de ayudar al resto del equipo con sus tareas. 
+			Esto significa corregir el diseño de la aplicacion y hacer el diagrama estatico
+        *Analista: 3/5, ha realizado su función y parte de la tarea correctamente, a  tiempo y sin grandes errores. Esto significa el diagrama dinamico
+
+Tercera semana:
+-Evaluación de rendimiento:
+        *Administrador: 4/5 ,ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores, además de ayudar al resto del equipo con sus tareas. 
+Esto significa hacer modificaciones posteriores en el codigo.
+        *Curador-Traductor: 5/5, ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores, además de ayudar al resto del equipo con sus tareas. 
+			Esto significa hacer la base del codigo y las modificaciones posteriores.
+        *Analista: 1/5, no ha realizado nada referente a la tarea.
+Cuarta semana:
+-Evaluación de rendimiento:
+        *Administrador: 3/5 ,ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores. 
+Esto significa hacer modificaciones  en el codigo.
+        *Curador-Traductor: 5/5, ha realizado su función y parte de la tarea correctamente, a tiempo  y sin errores, además de ayudar al resto del equipo con sus tareas. 
+			Esto significa hacer modificaciones  en el codigo y realizar los tests.
+        *Analista: 3/5,  realizado su función y parte de la tarea correctamente, a tiempo  y sin errores. 
+Esto significa hacer modificaciones  en el codigo.

@@ -1,0 +1,15 @@
+Documentación de trabajo semanal
+Primera semana: Puesta en marcha de la realización de la tarea , así mismo, como ponerse de acuerdo de en el diseño elegido 
+                para la realización del código del mismo.Inicios del código y comprensión del uso de python y el paquete gtk.
+                El diseño que elegimospara que el componente de la vista sea independiente del estado/modelo es el Model View Presenter
+
+Segunda semana : Realización del código y diseño de los diagramas UML asociados , tanto estático como dinámico.
+
+Tercera semana: Corrección de errores de la tarea 1 y puesta en marcha de la realización de la Tarea 2 mejorando la concurrencia de aquellas
+                tareas que tienen un mayor tiempo de ejecución como la búsqueda de cócteles o la descarga de imágenes de ingredientes
+
+                
+Cuarta semana : Elaboración de la tarea 3 que consistía en traducir nuestra pagina a inglés en nuetro caso en formatro en_GB o en_GB.utf8
+                usando la sentencia LC_ALL= en_GB.utf8 python3 app.py para cambiarlo en mi caso. Por último actualizamos los diseños tanto 
+                de la interfaz como de los uml ya que tuvimos que adaptar la api a una de escritorio que es lo que se pedía, también     
+                arreglamos algunos de los errores de la Tarea 2.

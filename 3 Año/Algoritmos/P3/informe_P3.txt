@@ -1,0 +1,173 @@
+AUTORES:
+---------------------------------------------------------------------------
+Rubén Fernández Farelo	| ruben.fernandez.farelo@udc.es
+Lucía Costa López	| lucia.costa.lopez@udc.es
+---------------------------------------------------------------------------
+GRUPO DE PRÁCTICAS 3.2
+---------------------------------------------------------------------------
+
+ÍNDICE
+________________________________
+
+1. INTRODUCCIÓN
+2. CARACTERÍSTICAS DE LA MÁQUINA
+	2.1 Marca
+	2.2 OS
+	2.3 Kernel
+	2.4 CPU
+	2.5 Memoria principal
+	2.6 Compilador
+3. UNIDADES DE MEDIDA
+4. METODOLOGÍA
+5. RESULTADOS
+6. CONCLUSIONES
+________________________________
+
+
+1. INTRODUCCIÓN
+
+En esta práctica se pretende implementar las funciones 
+
+void crearMonticulo(int v [], int n, monticulo *m);
+int quitarMenor(monticulo *m);
+
+sobre montículos de mínimos para comprobar que la creación de un montículo para un vector 
+con n elementos se ejecuta en un tiempo O(n).
+
+Más tarde se implementa la ordenación por montículos: 
+void ordenarPorMonticulos(int v [], int n)
+
+Calcularemos empíricamente la complejidad del algoritmo de ordenación para tres situaciones 
+iniciales diferentes: el vector ya está ordenado en orden ascendente, el vector ya está 
+ordenado en orden descendente, y el vector está inicialmente desordenado. En el caso de crear
+monticulo lo haremos para cuando esta ordenado aleatorioamente.
+
+2. CARACTERÍSTICAS DE LA MÁQUINA
+
+  - Marca:		Acer
+  - OS:			UBuntu 22.04.1 LTS 
+  - Kernel: 		5.15.0-83-generic
+  - CPU:		AMD Ryzen 3 2200U with Radeon Vega Mobile Gfx
+  - Memoria:		12 Gb
+  - Compilador: 	gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+	
+
+3. UNIDADES DE MEDIDA
+
+Las medidas están realizadas en microsegundos. Si la medida del tiempo de ejecución es menor a 
+500 microsegundos se realiza automáticamente un bucle de 1000 (k) iteraciones del algoritmo a 
+analizar y se calcula la media de los tiempos tardados. En este caso se indicará con (<-) en la 
+tabla.
+
+4. METODOLOGÍA
+
+Para comprobar el correcto funcionamiento del algoritmo de ordenación, utilizamos la función 
+"test_ordenacion()" que, para un vector ascendente, descendente y aleatorio, aplica dicho 
+algoritmo y comprueba que a sido ordenado correctamente.
+Para la comprobación de tiempos de creación y ordenación usamos la función "mostrar_tablas()",
+la cual llama a las funciones "tiempos_creacion(int n, void inicializacion (int v[], int n)" y
+"tiempos_ordenacion(int n, void inicializacion (int v[], int n)", que recibe el tamaño del 
+vector y su inicialización).
+ 
+	- Para creación de montículos aleatorios, para cualquier n, se usan la funciones:
+	 	* O(n) con x = n, f(n) = n^0.8 para la cota subestimada y f(n) = n^1.2 
+	 	para la sobreestimada.
+	 	
+	 - Para ordenación de montículos se usan la funciones:
+	 	* Vector aleatorio: O(nlogn) con x = nlogn, f(n) = n^0.93 para la cota 
+	 	subestimada y f(n) = n^1.6 para la sobreestimada.
+	 	
+	 	* Vector descendente: O(nlogn) con x = nlogn, f(n) = n^0.93 para la cota 
+	 	subestimada y f(n) = n^1.6 para la sobreestimada.
+	 	
+	 	* Vector aleatorio: O(nlogn) con x = nlogn, f(n) = n^0.93 para la cota 
+	 	subestimada y f(n) = n^1.6 para la sobreestimada.
+	 		 	
+
+5. RESULTADOS
+
+Medicion tiempos Crear Monticulo
+
+                 n             t                  t/n^0.8           t/n            t/n^1.2
+(<-)	       500    	    13.38200    	0.092756643    	0.026764000    	0.0077224841
+(<-)	      1000    	    29.90300    	0.119045987    	0.029903000    	0.0075112940
+(<-)	      2000    	    58.50200    	0.133766301    	0.029251000    	0.0063963868
+(<-)	      4000    	   114.55100    	0.150435693    	0.028637750    	0.0054516366
+(<-)	      8000    	   220.52400    	0.166335088    	0.027565500    	0.0045682291
+(<-)	     16000    	   474.90700    	0.205737086    	0.029681687    	0.0042821768
+ 	     32000    	   882.00000    	0.219456578    	0.027562500    	0.0034616935
+ 	     64000    	  1990.00000    	0.284386579    	0.031093750    	0.0033996727
+ 	    128000    	  4024.00000    	0.330285871    	0.031437500    	0.0029923060
+ 	    256000    	  8130.00000    	0.383264481    	0.031757813    	0.0026314952
+ 	    512000    	 14623.00000    	0.395931916    	0.028560547    	0.0020602149
+								Cte: 0.029
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones que le llamamos k y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+
+Medicion tiempos Ordenar Monticulo Ascendente
+
+                 n             t                t(n)/n^0.93     t/n*log(n)        t/n^1.6
+(<-)	       500    	    83.94400    	0.259386612    	0.027015058    	0.0040330876
+(<-)	      1000    	   185.87400    	0.301452330    	0.026908018    	0.0029459044
+(<-)	      2000    	   380.48700    	0.323878357    	0.025029067    	0.0019892613
+ 	      4000    	   856.00000    	0.382435300    	0.025801630    	0.0014763107
+ 	      8000    	  1759.00000    	0.412469796    	0.024465359    	0.0010007414
+ 	     16000    	  3354.00000    	0.412792192    	0.021654706    	0.0006294643
+ 	     32000    	  7842.00000    	0.506567541    	0.023623918    	0.0004854974
+ 	     64000    	 19087.00000    	0.647128159    	0.026948958    	0.0003898071
+ 	    128000    	 38052.00000    	0.677130251    	0.025279479    	0.0002563548
+ 	    256000    	 74254.00000    	0.693516321    	0.023292079    	0.0001650197
+ 	    512000    	158873.00000    	0.778805541    	0.023603906    	0.0001164711
+								Cte:0.025
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones que le llamamos k y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+Medicion tiempos Ordenar Monticulo Descendente
+
+                 n             t                t(n)/n^0.93     t/n*log(n)        t/n^1.6
+(<-)	       500    	    80.34400    	0.248262626    	0.025856498    	0.0038601257
+(<-)	      1000    	   167.77000    	0.272091080    	0.024287195    	0.0026589753
+(<-)	      2000    	   347.11600    	0.295472275    	0.022833868    	0.0018147911
+ 	      4000    	   766.00000    	0.342225981    	0.023088842    	0.0013210912
+ 	      8000    	  1554.00000    	0.364399126    	0.021614081    	0.0008841115
+ 	     16000    	  3589.00000    	0.441714722    	0.023171955    	0.0006735681
+ 	     32000    	  7764.00000    	0.501528996    	0.023388944    	0.0004806684
+ 	     64000    	 16388.00000    	0.555620908    	0.023138237    	0.0003346863
+ 	    128000    	 38455.00000    	0.684301582    	0.025547208    	0.0002590698
+ 	    256000    	 76484.00000    	0.714344039    	0.023991587    	0.0001699756
+ 	    512000    	154337.00000    	0.756569781    	0.022929988    	0.0001131457
+								Cte: 0.023
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones que le llamamos k y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+Medicion tiempos Ordenar Monticulo Aleatorio
+
+                 n             t                t(n)/n^0.93     t/n*log(n)        t/n^1.6
+(<-)	       500    	    94.89100    	0.293212796    	0.030538048    	0.0045590359
+(<-)	      1000    	   200.25500    	0.324775581    	0.028989880    	0.0031738279
+(<-)	      2000    	   431.37400    	0.367194417    	0.028376499    	0.0022553086
+ 	      4000    	   917.00000    	0.409688283    	0.027640298    	0.0015815151
+ 	      8000    	  1872.00000    	0.438967287    	0.026037040    	0.0010650301
+ 	     16000    	  4062.00000    	0.499929006    	0.026225824    	0.0007623387
+ 	     32000    	  9925.00000    	0.641122525    	0.029898926    	0.0006144557
+ 	     64000    	 22545.00000    	0.764368645    	0.031831313    	0.0004604286
+ 	    128000    	 45194.00000    	0.804221186    	0.030024198    	0.0003044702
+ 	    256000    	 96933.00000    	0.905333282    	0.030406053    	0.0002154208
+ 	    512000    	218065.00000    	1.068968486    	0.032398115    	0.0001598652
+								Cte: 0.029
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones que le llamamos k y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+6. CONCLUSIONES
+
+- Como podemos ver en la primera tabla, es cierto que crear un montículo a partir de un vector 
+cualquiera con n elementos (operación crearMonticulo) se ejecuta en un tiempo O(n).
+
+- La ordenacion por montículos es O(nlogn), igual que su complejidad teórica. Crear Montículo 
+es O(n), y n Eliminar es O(nlogn).
+
+- Dentro de los tres vectores utilizados para la ordenación, vemos que tenemos tiempos menores en
+el vector ordenado de forma descendente, puesto que a la hora de crear el montículo los menores
+elementos ya van a estar colocados hacia la raíz. Aquel vector que consume más tiempo de ejecución 
+para ser ordenado es el vector aleatorio. 

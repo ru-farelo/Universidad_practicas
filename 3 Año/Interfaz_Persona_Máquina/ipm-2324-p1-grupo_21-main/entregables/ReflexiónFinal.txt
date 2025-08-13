@@ -1,0 +1,28 @@
+a) ¿Qué ha sido lo mejor de la práctica?
+Mejorar la gestión del trabajo de forma autodidacta y aprender sobre el diseño de interfaces así como el lenguaje python y el uso de gtk.
+
+b) ¿Qué fue lo peor?
+- Tiempo ajustado para la realización de tareas debido al cúmulo de trabajo junto con otras asignaturas y también cabe recalcar que si no controlas de gtk y python un poco es muy fácil complicarse en implementaciones que a priori son fáciles pero nuestro desconocimiento hace que se vuelvan más complicadas.
+
+c) ¿Cuál fue el mejor momento de cada semana durante el trabajo del equipo?
+-Semana 1 -> Ponerse de acuerdo en el diseño que implementar
+-Semana 2 -> Persistencia en la elaboración del código y mejora del conocimiento sobre python y gtk
+-Semana 3 -> Mejora del conocimiento sobre concurrencia y el uso de threads
+-Semana 4 -> Después de tantos intentos conseguir implementar la búsqueda con click izquierdo
+d) ¿Cuál ha sido el peor?
+-Semana 1 -> La tarea 1 tenía mucha carga de trabajo y nos supero un poco apenas hicimos el diseño de la API y del UML.
+-Semana 2 -> Problemas con la implementación, como las listas, importar imágenes correctamente , etc.
+-Semana 3 -> No captar bien todos los posibles errores de nuestra API y problemas con el manejo de threads.
+-Semana 4 -> Pelearse con la implementación del uso correcto e intuitivo de nuestra API.
+e) ¿Qué has aprendido?
+-  Hemos aprendido a diseñar y implementar una API de escritorio usando python y gtk 
+
+f) ¿Qué necesitáis conservar -como equipo- para las próximas semanas?
+Consideramos que la perseverancia como equipo y adaptación ante nuevos problemas
+
+g) ¿Qué tenéis que mejorar -como equipo- para las próximas semanas?
+-Sinceramente creemos que la comunicación como equipo, es uno de los factores que más carecemos
+
+h) ¿Cómo se relaciona ESTE contenido con otros del curso y con tu titulación?
+En la parte de concurrencia se podría relacionar con la asignatura de CP(Concurrencia y paralelismo) de segundo curso
+Y en la parte de los UML con Diseño Software también de segundo año

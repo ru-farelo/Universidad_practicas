@@ -1,0 +1,9 @@
+Gtk: 
+	https://www.gtk.org/docs/
+	En esta pagina encontramos todas las funciones de la libreria Gtk y como usarlas.
+Pycharm:
+	https://www.jetbrains.com/pycharm/promo/?source=google&medium=cpc&campaign=EMEA_en_ES_PyCharm_Branded&term=pycharm&content=603858680145&gad=1&gclid=Cj0KCQjwm66pBhDQARIsALIR2zCoyGm8YP0n84mBfZj9RWPT0jOnrFQdJGGexcrrceIgvb7BUddpZ0saAgvQEALw_wcB
+	Progama de edicion de codigo para poder codifcar de manera mas efectiva.
+Python:
+	https://www.python.org/doc/
+	En esta página encontramos toda la documentacion base del leguange de programación Python.

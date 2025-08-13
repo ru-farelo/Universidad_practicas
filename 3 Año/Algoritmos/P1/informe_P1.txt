@@ -1,0 +1,111 @@
+AUTORES:
+---------------------------------------------------------------------------
+Rubén Fernández Farelo	| ruben.fernandez.farelo@udc.es
+Lucía Costa López	| lucia.costa.lopez@udc.es
+---------------------------------------------------------------------------
+GRUPO DE PRÁCTICAS 3.2
+---------------------------------------------------------------------------
+
+
+ÍNDICE
+________________________________
+
+1. INTRODUCCIÓN
+2. CARACTERÍSTICAS DE LA MÁQUINA
+	2.1 Marca
+	2.2 OS
+	2.3 Kernel
+	2.4 CPU
+	2.5 Memoria principal
+	2.6 Compilador
+3. UNIDADES DE MEDIDA
+4. METODOLOGÍA
+5. RESULTADOS
+6. CONCLUSIONES
+________________________________
+
+
+
+1. INTRODUCCIÓN
+
+En esta práctica se han implementado dos algoritmos diferentes que nos permiten la obtención de al suma de la subsecuencia máxima de un vector:
+Dados n números enteros a1, a2, ..., an, encontrar el valor máximo de ∑ak con 1 ≤ i ≤ j ≤ n (por conveniencia, la suma de la subsecuencia 
+máxima es 0 si todos los enteros son negativos).
+Se proponen dos algoritmos para resolver este problema: sumaSubMax1 (v[1..n]), sumaSubMax2 (v[1..n]).
+
+Para cada uno de los dos algoritmos, se determinan los tiempos de ejecución con vectores aleatorios de tamaño n igual a 500, 1000, 2000, 
+4000, 8000, 16000 y 32000; analizando los resultados obtenidos realizando una comprobación empírica de la complejidad teórica. Igualmente 
+se realizará una comprobación empírica utilizando una cota subestimada y otra sobre-estimada para cada algoritmo.
+
+2. CARACTERÍSTICAS DE LA MÁQUINA
+
+  - Marca:		Acer
+  - OS:			UBuntu 22.04.1 LTS 
+  - Kernel: 		5.15.0-83-generic
+  - CPU:		AMD Ryzen 3 2200U with Radeon Vega Mobile Gfx
+  - Memoria:		12 Gb
+  - Compilador: 	gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+	
+
+
+3. UNIDADES DE MEDIDA
+
+Los tiempos están expresados en microsegundos.
+
+
+4. METODOLOGÍA
+
+Se realizan comprobaciones sobre dos algoritmos: El primero con una complegidad de O(n²) y el segundo de O(n).
+  
+Para la comparación de tiempos de ejecución, se toman como referencia vectores aleatorios (la disposición de los elementos del vector se 
+genera de manera aleatoria) de tamaño n igual a 500, 1000, 2000, 4000, 8000, 16000 y 32000 (sucesión hasta 256000 para sumaSubMax2). Cada uno sobre los algoritmos sumaSubMax1 (v[1..n]) 
+y sumaSubMax2 (v[1..n]), cada uno con su respectiva función de tests.
+
+Para la comprobación empírica de la complegidad teórica se utiliza una cota subestimada y otra sobreestimada para cada algoritmo.
+	- Para sumaSubMax1 (v[1..n]) : O(n²) con x = n², se usa la función f(n) = n^1.8 para la cota subestimada y f(n) = n^2.2 para la sobreestimada.
+	- Para sumaSubMax2 (v[1..n]) : O(n) con x = n, se usa la función f(n) = n^0.75 para la cota subestimada y f(n) = n^1.25 para la sobreestimada.
+		
+El cálculo de los tiempos y la comprobación empírica mencionados anteriormente se realiza mediante las funciones medirSumaSubMax1(v[], n) y 
+medirSumaSubMax2(v[], n).
+
+5. RESULTADOS
+
+sumaSubMax1                                  Cota subestimada    Cota Ajustada       Cota sobrestimada
+             n                t(n)            t(n)/n^1.8           t(n)/n^2            t(n)/n^2.2
+
+            500 (<-)     405.728000            0.005625            0.001623            0.000468
+           1000         1507.000000            0.005999            0.001507            0.000379
+           2000         5862.000000            0.006702            0.001466            0.000320
+           4000        22934.000000            0.007530            0.001433            0.000273
+           8000        90265.000000            0.008511            0.001410            0.000234
+          16000       385426.000000            0.010436            0.001506            0.000217
+          32000      1492782.000000            0.011607            0.001458            0.000183
+								Cte : 0.0015
+
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+sumaSubMax2                                    Cota subestimada     Cota Ajustada      Cota sobrestimada
+             n                    t(n)           t(n)/n^0.75           t(n)/n^1          t(n)/n^1.25 
+
+            500  (<-)          1.606000            0.015189            0.003212            0.000679
+           1000  (<-)          3.088000            0.017365            0.003088            0.000549
+           2000  (<-)          6.462000            0.021607            0.003231            0.000483
+           4000  (<-)         12.653000            0.025156            0.003163            0.000398
+           8000  (<-)         23.730000            0.028053            0.002966            0.000314
+          16000  (<-)         46.597000            0.032754            0.002912            0.000259
+          32000  (<-)        105.038000            0.043902            0.003282            0.000245
+          64000  (<-)        208.145000            0.051729            0.003252            0.000204
+         128000  (<-)        390.210000            0.057662            0.003049            0.000161
+         256000              809.000000            0.071083            0.003160            0.000140
+  								    Cte : 0.0031
+
+(<-)	: Filas con tiempos inferiores a 500 microsegundos(calculados midiendo los tiempos en 1000 ejecuciones y haciendo la media de los mismos)
+(*)	: Valores anómalos
+
+
+6. CONCLUSIONES
+
+Podemos deducir que el primer algoritmo (sumaSubMax1) tiene una complejidad computacional de n^2, mientras que la complejidad computacional del  segundo
+algoritmo (sumaSubMax2) es menor, situándose en n. Con esto podemos concluir que sumaSubMax2 será la mejor opción.
+

@@ -1,0 +1,21 @@
+Semana 1:
+  -Correcciones de la práctica de escritorio, corrección del UML tanto estático 
+    como dinámico y ajuste del diseño a la última versión del código.
+  -Establecidas las últimas correcciones sobre el código para la defensa.
+  -Comienzos con flutter, preparación del entorno y familiarización con el lenguaje.
+
+Semana 2:
+  -Elaboración del diseño del API móvil y tablet, elaboración de los diagramas estático
+    y dinámico usando el patrón provider.
+  -Configuración del server_stub para tener las monedas del servidor.
+  -Comienzos con el código.
+
+Semana 3:
+  -Implementación del diseño diferenciando entre móvil y tablet.
+  -Optimizaciones del código, cambios en las funciones para evitar repetir código.
+  -Actualización de los diseños para adaptarlos al código.
+
+Semana 4:
+  -Correcciones en los mensajes de error.
+  -Optimizaciones del código, cambios en las funciones para evitar repetir código.
+  -Cambios para solucionar varios errores menores
