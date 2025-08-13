@@ -1,0 +1,407 @@
+EJ1)
+Explicacion implementación Se entiende
+Finiquitao
+a)
+La función mapdoble es una función que toma tres argumentos: f, g y l. La función f y g son funciones y l es una lista.
+
+La función mapdoble devuelve una nueva lista, en la que cada elemento se aplica f si su posición en la lista es un número par, y g en caso contrario.
+
+La implementación de mapdoble utiliza una función auxiliar llamada aux. La función aux toma dos argumentos: n y l. n es un número que indica la posición actual del elemento en la lista l, y l es una lista.
+
+La función aux devuelve una nueva lista, que se construye recursivamente. Si l está vacía, la función devuelve una lista vacía. Si l no está vacía, se descompone en una cabeza (h) y una cola (t). Si n es un número par, se aplica f a h y se agrega el resultado a la lista devuelta por aux (n + 1) t. Si n es un número impar, se aplica g a h y se agrega el resultado a la lista devuelta por aux (n + 1) t.  Esta construcción se hace así porque se quiere construir una nueva lista a partir de los resultados de aplicar f y g a los elementos de la lista l. La lista resultante se construye de forma incremental, agregando un elemento a la vez a la lista resultante. Es como que se va aplicando aux de forma recursiva a cada posicion y se va incrementando la misma
+
+La función mapdoble llama a la función aux con los argumentos 0 y l, y devuelve el resultado de aux.
+ 
+ 
+ b)
+ 
+El tipo de la funcion es el siguiente
+# mapdoble;;
+- : ('a -> 'b) -> ('a -> 'b) -> 'a list -> 'b list = <fun>
+
+'a y 'b son tipos genéricos, lo que significa que pueden ser reemplazados por cualquier tipo concreto en el momento de la llamada a la función. Por ejemplo, si queremos aplicar mapdoble a una lista de números enteros y convertirlos en números flotantes, podemos especificar los tipos concretos int y float como 'a y 'b, respectivamente:
+ 
+C)
+El valor seria erroneo:
+Dara error de tipo, ya que no se podrá aplicar la segunda función, puesto que en la primera función estamos aplicando
+un tipado int y en la segunda un tipado string, como el resultado final es una única lista y no puede haber listas
+con elementos de diferente tipo, dará error de tipo.
+
+d)
+El tipo seria el siguiente:
+# let y = function x -> 5 in mapdoble y;;
+- : ('_weak2 -> int) -> '_weak2 list -> int list = <fun>
+
+y --> es una funcion anonima
+
+Justificacion del tipo:
+Significa que toma una función f que toma un argumento de cualquier tipo y devuelve un int, y una lista de cualquier tipo y devuelve una lista de int. Esto se debe a que y es una función constante que siempre devuelve un int, por lo que la función de tipo devuelta por mapdoble también devuelve una lista de int. 
+
+
+Ej2) Finiquitao
+
+a)
+
+let rec primero_que_cumple f l = match l with
+	[] -> raise(Not_found)
+	| h::t when f h -> h
+	| h::t -> primero_que_cumple f t;;
+	
+Explicacion:
+
+La función primero_que_cumple es una función recursiva que busca el primer elemento en una lista que cumpla con una determinada condición. La función toma dos argumentos:
+
+   - f: una función que toma un elemento de la lista y devuelve un valor booleano indicando si cumple con la condición.
+
+   - l: una lista de elementos.
+
+La función funciona de la siguiente manera:
+
+   - Se comprueba si la lista está vacía. Si es así, se levanta la excepción Not_found.
+
+   - Se comprueba si el primer elemento de la lista (h) cumple con la condición f. Si es así, se devuelve h.
+
+   - Si el primer elemento no cumple con la condición, se llama a la función primero_que_cumple con el resto de la lista (t) como argumento.
+
+La función continúa llamándose recursivamente hasta que se encuentre el primer elemento que cumpla con la condición o se alcance el final de la lista. En ese caso, se levanta la excepción Not_found indicando que no se ha encontrado un elemento que cumpla con la condición.
+b)
+primero_que_cumple;;
+- : ('a -> bool) -> 'a list -> 'a = <fun>
+
+c)
+
+La función existe toma dos argumentos:
+
+    f: una función que toma un elemento de la lista y devuelve un valor booleano indicando si cumple con una determinada condición.
+
+    l: una lista de elementos.
+
+La función intenta encontrar el primer elemento en la lista l que cumpla con la condición f utilizando la función primero_que_cumple. Si la función primero_que_cumple encuentra un elemento que cumpla con la condición, devuelve true indicando que existe al menos un elemento en la lista que cumpla con la condición.
+
+Si la función primero_que_cumple no encuentra un elemento que cumpla con la condición, levanta la excepción Not_found. En ese caso, la función existe captura la excepción y devuelve false indicando que no existe ningún elemento en la lista que cumpla con la condición.
+Es como que utiliza las restriciones de la funcion primero que cumple y en caso de no existir ningun elemento en la lista 
+devuelve un error
+
+d)
+
+Esta función toma dos argumentos: l y c. La función asociado devuelve el segundo elemento de la primera pareja en l cuyo primer elemento es igual a c.
+
+Aquí hay una explicación detallada de cada línea de la función:
+
+   - La función asociado define una función auxiliar que toma una pareja (_, y) y devuelve y. Esta función auxiliar se utilizará posteriormente para acceder al segundo elemento de la pareja. okei
+
+    - La función primero_que_cumple se invoca con la condición (function (x, _) -> x = c) y la lista l. Esta función devuelve la primera pareja en l cuyo primer elemento es igual a c. okei
+
+    - La función aux se invoca con el resultado de primero_que_cumple y devuelve el segundo elemento de la pareja. Este valor se devuelve como el resultado final de asociado.
+
+//////////
+Ejercicio 3
+
+In Order
+
+let rec in_orden = function
+  | Vacio -> []
+  | Nodo (r, i, d) -> in_orden i @ [r] @ in_orden d
+  
+  
+Utilizamos la sintaxis de patrones anónimos en lugar de la sintaxis match ... with. Además, el caso para Vacio se colocó al principio para evitar una comparación adicional en cada llamada a la función.
+
+Explicacion:
+    let rec in_orden = function: esta línea define una función recursiva llamada in_orden, que toma un argumento anónimo.
+
+    | Vacio -> []: este caso especifica que si el argumento es Vacio, la función devuelve una lista vacía [].
+
+    | Nodo (r, i, d) ->: este caso especifica que si el argumento es un Nodo con valor r, hijo izquierdo i, y hijo derecho d, se aplica lo que está después del ->.
+
+    in_orden i @ [r] @ in_orden d: aquí, primero se llama a la función in_orden con i como argumento, luego se coloca r en una lista [r], y finalmente se llama a la función in_orden con d como argumento. Los resultados de estas tres llamadas se concatenan con el operador @ y se devuelven como resultado final.
+
+En resumen, la función in_orden recorre un árbol en in-orden y devuelve una lista de sus elementos en el orden correspondiente.
+ 
+ 
+Pre orden:
+ 
+ 
+let rec pre_orden = function
+  | Vacio -> []
+  | Nodo (r, i, d) -> [r] @ pre_orden i @ pre_orden d;;
+ 
+ 
+Claro, aquí está una explicación detallada de la función pre_orden:
+
+    let rec pre_orden = function: esta línea define una función recursiva llamada pre_orden, que toma un argumento anónimo.
+
+    | Vacio -> []: este caso especifica que si el argumento es Vacio, la función devuelve una lista vacía [].
+
+    | Nodo (r, i, d) ->: este caso especifica que si el argumento es un Nodo con valor r, hijo izquierdo i, y hijo derecho d, se aplica lo que está después del ->.
+
+    [r] @ pre_orden i @ pre_orden d: aquí, primero se coloca r en una lista [r], luego se llama a la función pre_orden con i como argumento, y finalmente se llama a la función pre_orden con d como argumento. Los resultados de estas dos últimas llamadas se concatenan con el operador @ y se concatenan con la lista [r] para formar el resultado final. 
+ 
+ 
+ Post orden: 
+ 
+ let rec post_orden = function
+  | Vacio -> []
+  | Nodo (r, i, d) -> post_orden i @ post_orden d @ [r] ;;
+  
+      let rec post_orden = function: esta línea define una función recursiva llamada post_orden, que toma un argumento anónimo.
+
+    | Vacio -> []: este caso especifica que si el argumento es Vacio, la función devuelve una lista vacía [].
+
+    | Nodo (r, i, d) ->: este caso especifica que si el argumento es un Nodo con valor r, hijo izquierdo i, y hijo derecho d, se aplica lo que está después del ->.
+
+    post_orden i @ post_orden d @ [r]: aquí, primero se llama a la función post_orden con i como argumento, luego se llama a la función post_orden con d como argumento, y finalmente se coloca r en una lista [r]. Los resultados de las dos primeras llamadas se concatenan con el operador @, y luego se concatenan con la lista [r] para formar el resultado final.
+
+Anchura
+
+let anchura =
+  let rec aux = function
+    | [], [] -> []
+    | [], h :: t | h :: t, [] -> h :: t
+    | h1 :: t1, h2 :: t2 -> h1 :: h2 :: aux (t1, t2)
+  in
+  let rec anchura_aux = function
+    | Vacio -> []
+    | Nodo (r, i, d) -> r :: aux (anchura_aux i, anchura_aux d)
+  in
+  anchura_aux;;
+  
+
+
+
+Esta versión es equivalente a la versión anterior, pero utiliza una función auxiliar anidada aux para simplificar la lógica de concatenación de las dos listas y una función auxiliar anchura_helper para separar la definición de la función principal y mejorar la claridad del código. Además, el caso para Vacio se colocó al principio para evitar una comparación adicional en cada llamada a la función.
+
+     let anchura =: esta línea define una función llamada anchura.
+
+    let rec aux = function: esta línea define una función auxiliar recursiva llamada aux, que toma dos argumentos anónimos.
+
+    | [], [] -> []: este caso especifica que si los dos argumentos son ambos listas vacías [], la función devuelve una lista vacía [].
+
+    | [], h :: t | h :: t, [] -> h :: t: este caso especifica que si uno de los argumentos es una lista vacía [] y el otro no lo es, la función devuelve el otro argumento sin cambios.
+
+    | h1 :: t1, h2 :: t2 -> h1 :: h2 :: aux (t1, t2): este caso especifica que si ambos argumentos son listas no vacías, la función devuelve una nueva lista que consiste en los primeros elementos de ambas listas, concatenados en el orden h1 :: h2 :: t1 @ t2.
+
+    let rec anchura_helper = function: esta línea define una función auxiliar recursiva llamada anchura_helper, que toma un argumento anónimo.
+
+    | Vacio -> []: este caso especifica que si el argumento es Vacio, la función devuelve una lista vacía [].
+
+    | Nodo (r, i, d) -> r :: aux (anchura_helper i, anchura_helper d): este caso especifica que si el argumento es un Nodo con valor r, hijo izquierdo i, y hijo derecho d, la función devuelve una nueva lista que consiste en el valor r seguido de la concatenación de las listas resultantes de llamar a anchura_helper con i y d como argumentos.
+
+    anchura_helper: al final de la función, la función anchura es igual a anchura_helper, lo que significa que anchura es un alias para anchura_helper.
+    
+
+CONSIDERO QUE ESTA MEJOR EXPLICADO AQUI 
+La función anchura es una función que toma como entrada un árbol binario y devuelve una lista que representa el recorrido de anchura del árbol.
+
+El proceso de recorrido de anchura consiste en visitar todos los nodos de un árbol binario en orden de sus niveles, es decir, primero se visita el nodo raíz, luego los hijos de la raíz, luego los nietos de la raíz, y así sucesivamente.
+
+La función anchura utiliza dos funciones auxiliares para realizar el recorrido de anchura: aux y anchura_aux. La función aux es una función que toma dos listas y devuelve una lista resultante que es la concatenación de los elementos de las dos listas. La función anchura_aux es la función principal que realiza el recorrido de anchura.
+
+La función anchura_aux es una función recursiva que toma como entrada un árbol binario y devuelve una lista que representa el recorrido de anchura del árbol. La función funciona de la siguiente manera:
+
+    Si el árbol es vacío, devuelve una lista vacía.
+    Si el árbol no es vacío, se agrega el valor del nodo raíz a la lista resultante.
+    Luego, se llama recursivamente a anchura_aux con los hijos izquierdo e derecho del nodo raíz, y se concatenan los resultados usando la función aux.
+
+Este proceso continúa recursivamente hasta que se haya visitado todos los nodos del árbol. La lista resultante representa el recorrido de anchura del árbol.
+EJERCICIO 4
+
+Pertenece
+
+let rec pertenece a = function
+     Conjunto []     -> false
+   | Conjunto (h::t) -> if (h = a) then true
+   			else (pertenece a (Conjunto t));;	
+
+
+Aquí te explico cómo funciona paso a paso: Se entiende
+
+    La función utiliza una estructura de match para manejar dos casos posibles:
+        Si el conjunto está vacío (Conjunto []), devuelve false.
+        Si el conjunto no está vacío (Conjunto (h::t)), entonces compara el primer elemento h del conjunto con a.
+
+    Si h = a, entonces el elemento a se encuentra en el conjunto y la función devuelve true.
+
+    Si h es diferente de a, entonces la función llama a sí misma recursivamente con Conjunto t como argumento. Esto realiza una búsqueda secuencial en el resto del conjunto.
+
+    Si ningún elemento en el conjunto es igual a a, la función retornará false.
+
+Este es el procedimiento general de la función pertenece.
+
+
+let agregar a (Conjunto l) = 
+   if pertenece a (Conjunto l) then
+      Conjunto l
+   else
+      Conjunto (a::l);;
+
+
+
+La función agregar toma dos argumentos: un elemento a y un conjunto Conjunto l. La función agrega el elemento a al conjunto si no se encuentra ya en el mismo.
+
+Aquí te explico cómo funciona paso a paso:
+
+    La función llama a la función pertenece con a y Conjunto l como argumentos.
+
+    Si pertenece devuelve true, significa que a ya se encuentra en el conjunto y la función retorna Conjunto l sin realizar ningún cambio.
+
+    Si no pertenece devuelve false, significa que a no se encuentra en el conjunto y la función agrega a al conjunto retornando Conjunto (a::l).
+
+Este es el procedimiento general de la función agregar.
+
+
+///// REvisar
+
+ v2:
+let conjunto_of_list l =
+  let l_unique = List.sort_uniq compare l in
+  Conjunto l_unique;;
+
+
+Da igual como esten ordenados los elementos si estan los mismos esque es el mismo conjunto
+, con esta implementacion conseguimos crear un conjunto que no tenga elementos repetidos 
+ 
+ Esta función toma una lista como parámetro e itera a través de ella, ordena los elementos de la lista de forma única y los devuelve como un conjunto. Primero, la función usa la función List.sort_uniq para ordenar los elementos de la lista de forma única. Esta función se asegura de que no haya elementos repetidos en la lista. Después, la función devuelve los elementos de la lista ordenados como un conjunto usando la función Conjunto. Esta función es útil para eliminar elementos repetidos de una lista y devolverlos como un conjunto.
+ 
+//////
+
+let rec suprimir a = function
+     Conjunto []     -> conjunto_vacio
+   | Conjunto (h::t) -> if (h = a) then 
+                           Conjunto t
+			else 
+                           agregar h (suprimir a (Conjunto t));;
+
+
+
+
+La función suprimir toma un elemento a y un conjunto Conjunto l como argumentos, y retorna un nuevo conjunto sin el elemento a.
+
+Aquí te explico cómo funciona paso a paso:
+
+    La función toma un elemento a y un conjunto Conjunto l como argumentos.
+
+    La función verifica si el conjunto está vacío. Si es así, retorna conjunto_vacio.
+
+    Si el conjunto no está vacío, verifica si el primer elemento h de la lista es igual a a. Si es así, retorna Conjunto t que es un nuevo conjunto sin el elemento a.
+
+    Si el primer elemento h no es igual a a, entonces agrega h a un nuevo conjunto que se obtiene al suprimir a de Conjunto t y retorna el resultado.
+
+Este es el procedimiento general de la función suprimir. La función permite suprimir un elemento de un conjunto y retornar un nuevo conjunto sin él.
+ 
+ 
+ 
+ let cardinal (Conjunto l) =
+   List.length l;;
+
+
+La función cardinal recibe como parámetro un conjunto de tipo Conjunto, y retorna la cantidad de elementos que contiene ese conjunto.
+
+    La función utiliza la función List.length para calcular la longitud de la lista que representa el conjunto.
+    La longitud de la lista es retornada como resultado de la función.
+    
+  /////////////// Revisar  
+v1
+ let union (Conjunto a) (Conjunto b) =
+   conjunto_of_list (a @ b);;
+
+La función union recibe como parámetro dos conjuntos de tipo Conjunto, y retorna un nuevo conjunto que contiene todos los elementos de ambos conjuntos originales.
+
+    La función concatena las listas que representan a ambos conjuntos, utilizando el operador de concatenación de listas @.
+    El resultado de la concatenación es convertido en un nuevo conjunto usando la función conjunto_of_list.
+    El nuevo conjunto es retornado como resultado de la función.
+  
+
+  
+/////////////////    
+ let rec interseccion (Conjunto a) = function
+     Conjunto []     -> conjunto_vacio
+   | Conjunto (h::t) -> if pertenece h (Conjunto a) then 
+			   agregar h (interseccion (Conjunto a) (Conjunto t))
+			else 
+			   interseccion (Conjunto a) (Conjunto t);;
+
+La función "intersección" recibe dos argumentos, ambos de tipo "Conjunto", y retorna un nuevo conjunto que es la intersección de ambos.
+
+    La función comienza con una comparación de patrones. Si el conjunto "Conjunto" está vacío, se devuelve un conjunto vacío. Esto es una condición de parada para la recursión, porque si uno de los conjuntos está vacío, entonces no hay intersección posible.
+
+    Si el conjunto "Conjunto" no está vacío, se extrae su primer elemento (la cabeza del conjunto) y se comprueba si está presente en el conjunto "a" utilizando la función "pertenece".
+
+    Si el elemento está presente en el conjunto "a", entonces se agrega a la intersección utilizando la función "agregar". Luego, se llama recursivamente a la función "interseccion" con el conjunto "a" y el resto del conjunto "Conjunto" (la cola del conjunto) para buscar más elementos en común.
+
+    Si el elemento no está presente en el conjunto "a", entonces simplemente se llama recursivamente a la función "interseccion" con el conjunto "a" y el resto del conjunto "Conjunto" para buscar más elementos en común.
+
+    Finalmente, cuando la recursión termina, se devuelve el conjunto que contiene los elementos en común. Este conjunto es construido a medida que la recursión desciende y se van agregando los elementos comunes.
+
+En resumen, esta función utiliza recursión para buscar elementos comunes en dos conjuntos y construye otro conjunto con los elementos encontrados. Cada elemento del conjunto "Conjunto" se compara con el conjunto "a" para verificar si está presente en ambos conjuntos. Si es así, se agrega a un conjunto de intersección en construcción. Si no es así, se continúa buscando elementos comunes en el conjunto "Conjunto".
+    
+    
+ let rec diferencia (Conjunto a) = function
+     Conjunto []     -> Conjunto a
+   | Conjunto (h::t) -> diferencia (suprimir h (Conjunto a)) (Conjunto t);;
+
+La función diferencia toma dos argumentos: un conjunto a y otro conjunto b. La función retorna un nuevo conjunto que contiene todos los elementos del conjunto a que no se encuentran en el conjunto b.
+
+La implementación usa recursión y la función suprimir para construir el nuevo conjunto. Si el conjunto b está vacío, se retorna el conjunto a tal cual. Si el conjunto b no está vacío, se suprime el primer elemento del conjunto b del conjunto a usando la función suprimir, y se realiza la misma operación sobre el resto de los elementos del conjunto b usando una llamada recursiva a diferencia. De esta manera, al final de la recursión se retornará un conjunto que contenga solo los elementos de a que no se encuentran en b.
+
+
+
+let rec incluido = function
+     Conjunto []     -> (function _ -> true)
+   | Conjunto (h::t) -> (function b -> (pertenece h b) && (incluido (Conjunto t) b));;
+
+
+
+Esta función verifica si un conjunto está incluido en otro. La función toma un conjunto A y retorna una función anónima que toma otro conjunto B como argumento. La función retornada verifica si el conjunto A está incluido en B.
+
+Paso a paso:
+
+    Verifica si el conjunto A está vacío.
+    a. Si está vacío, retorna una función que siempre devuelve verdadero.
+    Si el conjunto A no está vacío, toma la cabeza (h) y la cola (t) del conjunto.
+    Verifica si el elemento h está en el conjunto B.
+    a. Si está en B, llama a la función incluido recursivamente para t y B.
+    Si no está en B, la función retorna falso.
+    Si todas las llamadas a la función incluido retornan verdadero, retorna verdadero. De lo contrario, retorna falso.
+    
+    
+let igual a b =
+   (incluido a b) && (incluido b a);;
+
+La función igual recibe dos argumentos, a y b, que corresponden a dos conjuntos.
+
+La función realiza una comparación entre los conjuntos a y b.
+
+Se utiliza la función incluido para verificar si a está incluido en b y viceversa.
+
+Si ambos son verdaderos, la función retorna true, lo que indica que los conjuntos a y b son iguales. Si alguno de los dos es falso, la función retorna false, lo que indica que los conjuntos a y b son diferentes.
+
+let producto_cartesiano c1 c2 =
+	let rec aux l1 l2 = match l1, l2 with
+		[], _ | _, [] -> []
+        	| h1::t1, h2::t2 -> (h1,h2)::(aux [h1] t2)@(aux t1 l2)
+        and aux1 = function
+        	Conjunto ([]) -> []
+        	| Conjunto (l) -> l
+        in Conjunto [aux (aux1 c1) (aux1 c2)];;
+
+
+La función "producto_cartesiano" toma dos conjuntos "c1" y "c2" como entrada y devuelve un conjunto que contiene todos los pares de elementos de c1 y c2.
+
+    Se define una función auxiliar llamada "aux" que toma dos listas "l1" y "l2" como entrada.
+    La función "aux" utiliza una estructura de coincidencia de patrones para determinar cómo manejar los casos donde alguna de las dos listas está vacía. Si ambas listas son vacías, se devuelve una lista vacía. Si alguna de las dos listas está vacía, se devuelve la otra lista vacía.
+    Si ambas listas tienen elementos, se concatenan todos los pares posibles de elementos, utilizando la técnica de concatenación de listas.
+    Se define una función auxiliar llamada "aux1", que toma un conjunto como entrada y devuelve una lista de los elementos de ese conjunto.
+    Finalmente, la función "producto_cartesiano" usa la función "aux1" para extraer los elementos de los conjuntos "c1" y "c2", y luego pasa estas listas a la función "aux" para obtener una lista de pares de elementos.
+    Se envuelve esta lista en una estructura "Conjunto" y se devuelve como resultado de la función "producto_cartesiano".
+
+
+
+let list_of_conjunto (Conjunto l) =
+   l;;
+
+La función list_of_conjunto toma como entrada un conjunto y retorna una lista con los elementos del conjunto.
+
+Paso a paso:
+
+    La función toma como entrada un conjunto (Conjunto l).
+    La función retorna la lista l que se encuentra dentro del conjunto.

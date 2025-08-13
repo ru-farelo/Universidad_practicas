@@ -1,0 +1,191 @@
+1)
+
+(* Función que verifica si un autómata finito no determinista con epsilon transiciones es AFNE o no *)
+let es_afne (af : af) : bool =
+  (* Creamos una variable para el símbolo épsilon , la cadena vacia*)
+  let epsilon = Terminal "" in
+  (* Obtenemos las transiciones del autómata finito *)
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  (* Función para verificar si un estado que cumple las condiciones de no determinismo epsilon transiciones *)
+  let es_afne_estado estado =
+    (* Obtenemos las transiciones que salen del estado actual usando el símbolo épsilon *)
+    let transiciones_epsilon = filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo = epsilon) transiciones in
+    (* Verificamos si existen transiciones que salgan del estado actual usando el símbolo épsilon *)
+    let existe_transicion_epsilon = not (conjunto_is_empty transiciones_epsilon) in
+    (* Obtenemos las transiciones que salen del estado actual sin usar el símbolo épsilon *)
+    let transiciones_estado = filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo <> epsilon) transiciones in
+    (* Obtenemos los destinos de las transiciones obtenidas anteriormente *)
+    let destinos = map (fun (Arco_af(_, estado_destino, _)) -> estado_destino) transiciones_estado in
+    (* Verificamos si existen transiciones que usen el símbolo épsilon y lleguen a algún estado destino obtenido anteriormente *)
+    let existe_epsilon_destino = exists (fun estado_destino -> exists (fun (Arco_af(origen, _, simbolo)) -> origen = estado_destino && simbolo = epsilon) transiciones) destinos in
+    (* El estado es AFNE si existe alguna transición que use el símbolo épsilon o alguna transición que llegue a un estado destino usando el símbolo épsilon *)
+    existe_transicion_epsilon || existe_epsilon_destino
+  in
+  (* Obtenemos los estados del autómata finito *)
+  let estados = match af with | Af(estados, _, _, _, _) -> estados in
+  (* El autómata finito es AFNE si existe algún estado que sea AFNE estado *)
+  exists es_afne_estado estados;;
+
+///////////////////////////
+
+
+(* Función que verifica si un autómata finito no determinista es AFN o no *)
+let es_afn (af : af) : bool =
+  (* Obtenemos las transiciones del autómata *)
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  (* Definimos una función que determina si un estado cumple las condiciones de ser un AFN o no *)
+  let es_afn_estado estado =
+    (* Obtenemos las transiciones sin transiciones epsilon desde el estado *)
+    let transiciones_estado = List.filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo <> Terminal "") (Conj.list_of_conjunto transiciones) in
+    (* Obtenemos los destinos de las transiciones sin transiciones epsilon desde el estado *)
+    let destinos = List.map (fun (Arco_af(_, estado_destino, _)) -> estado_destino) transiciones_estado in
+    (* Obtenemos los destinos sin repeticiones y los ordenamos *)
+    let destinos_sin_repeticion = List.sort_uniq compare destinos in
+    (* El estado es AFN si tiene más de un destino *)
+    List.length destinos <> List.length destinos_sin_repeticion
+  in
+  (* Obtenemos los estados del autómata *)
+  let estados = Conj.list_of_conjunto (match af with | Af(estados, _, _, _, _) -> estados) in
+  (* Verificamos si algún estado es AFN *)
+  List.exists es_afn_estado estados;;
+
+///////////////////////////////////
+  
+
+let es_afd (af : af) : bool =
+  (* Extraemos las transiciones del autómata *)
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  (* Función que comprueba si un estado es determinista *)
+  let es_determinista_estado estado =
+    (* Extraemos los símbolos de entrada del autómata *)
+    let simbolos = match af with | Af(_, simbolos, _, _, _) -> simbolos in
+    (* Comprobamos si para cada símbolo de entrada de los estados hay una única transición *)
+    for_all (fun simbolo ->
+        (* Filtramos las transiciones que van desde el estado actual y que utilizan el símbolo actual *)
+        let transiciones_estado_simbolo = filter (fun (Arco_af(estado_origen, _, simbolo')) -> estado_origen = estado && simbolo' = simbolo) transiciones in
+        (* Comprobamos que solo haya una transición *)
+        cardinal transiciones_estado_simbolo = 1
+      ) simbolos
+  in
+  (* Extraemos los estados del autómata y comprobamos si son todos deterministas *)
+  let estados = match af with | Af(estados, _, _, _, _) -> estados in
+  for_all es_determinista_estado estados;;
+  
+  ///////////////////////////////////
+2)
+let equivalentes (Af (estados1, alfabeto1, inicial1, transiciones1, finales1))
+                  (Af (estados2, alfabeto2, inicial2, transiciones2, finales2)) =
+  (* Función auxiliar para obtener el siguiente estado de un arco *)
+  let estado_siguiente (Arco_af(_, s, _)) = s in
+  (* Función auxiliar que verifica si algún estado es final *)
+  let es_final finales estados =
+    Conj.exists (fun e -> pertenece e finales) estados in
+  (* Conjunto para almacenar los estados visitados *)
+  let estados_visitados = ref Conj.conjunto_vacio in
+  (* Cola para el algoritmo Busqueda en anchura. Inicialmente contiene los estados iniciales de ambos autómatas, se crea una referencia mutable a una lista que contiene una unica tupla *)
+  
+  (*el primer argumento de epsilon_cierre es un conjunto que contiene el estado inicial del primer autómata (inicial1) y el conjunto vacío. El segundo argumento es el propio autómata (Af) .La función epsilon_cierre se encarga de calcular el cierre-épsilon del conjunto de estados inicial, es decir , devuelve el conjunto de todos los estados que pueden ser alcanzados desde ese conjunto de estados utilizando transiciones épsilon. Este primer cierre-épsilon se agrega como el primer elemento de la tupla en la lista de la cola.
+
+El segundo argumento de epsilon_cierre es lo mismo que el primero 2 automata L Este segundo cierre-épsilon se agrega como el segundo elemento de la tupla en la lista de la cola.*)
+
+  let cola = ref [(epsilon_cierre (Conj.agregar inicial1 Conj.conjunto_vacio) (Af (estados1, alfabeto1, inicial1, transiciones1, finales1)),
+                  epsilon_cierre (Conj.agregar inicial2 Conj.conjunto_vacio) (Af (estados2, alfabeto2, inicial2, transiciones2, finales2)))] in
+  (* Función recursiva Busqueda en anchura *)
+  let rec bfs () =
+    match !cola with
+    | [] -> true
+    | (estados_actuales1, estados_actuales2)::resto -> (*Los primeros estados actuales seran los iniciales*)
+      (* Si los estados actuales ya fueron visitados, se descartan y se continúa con el siguiente estado en la cola *)
+      if Conj.pertenece (estados_actuales1, estados_actuales2) !estados_visitados then
+      	(cola := resto;
+      	 bfs ())
+      else (*Sino fueron visitadors*)
+        (* Se agregan los estados actuales al conjunto de visitados *)
+        let estados_visitados' = Conj.agregar (estados_actuales1, estados_actuales2) !estados_visitados in
+        (* Si los dos autómatas tienen un estado final y el otro no, entonces no son equivalentes *)
+        if (es_final finales1 estados_actuales1 && not (es_final finales2 estados_actuales2)) ||
+           (es_final finales2 estados_actuales2 && not (es_final finales1 estados_actuales1)) then
+          false
+        else
+          (* Se calculan los nuevos estados alcanzables por cada símbolo del alfabeto *)
+          let nuevos_estados = ref Conj.conjunto_vacio in
+          iter (fun simbolo ->
+            (* Se filtran los arcos correspondientes al símbolo actual *)
+            let transiciones1' = filter (fun (Arco_af  (e1, _ , s1)) -> pertenece e1 estados_actuales1 && s1= simbolo) transiciones1 in
+            let transiciones2' = filter (fun (Arco_af  (e2, _ , s2)) -> pertenece e2 estados_actuales2 && s2= simbolo) transiciones2 in
+            (* Se obtienen los estados alcanzables a través de cada arco *)
+            let sig1 = map estado_siguiente transiciones1' in 
+            let sig2 = map estado_siguiente transiciones2' in
+            (* Se calcula el cierre épsilon de los estados alcanzables *)
+       (* Se calcula el epsilon-cierre de los estados sig1 y sig2 *)
+let sig1_eps = epsilon_cierre sig1 (Af (estados1, alfabeto1, inicial1, transiciones1, finales1)) in
+let sig2_eps = epsilon_cierre sig2 (Af (estados2, alfabeto2, inicial2, transiciones2, finales2)) in
+
+(* Si alguno de los epsilon-cierres no es vacío, se agrega la pareja de estados a la lista de nuevos estados *)
+if not (es_vacio sig1_eps) || not (es_vacio sig2_eps) then
+    nuevos_estados := Conj.agregar (sig1_eps, sig2_eps) !nuevos_estados
+) (union alfabeto1 alfabeto2);
+
+(* Se actualiza la cola con los nuevos estados y los estados restantes *)
+cola := (list_of_conjunto !nuevos_estados) @ resto;
+
+(* Se actualiza la lista de estados visitados *)
+estados_visitados := estados_visitados';
+
+(* Se llama recursivamente a la función bfs para continuar con la búsqueda *)
+bfs ()
+;;
+////////////
+3) 
+(*Funcion original*)
+
+(*Función que dado un autómata y una cadena, verifica si la cadena es aceptada por el autómata*)
+
+let escaner_af cadena (Af (_, _, inicial, _, finales) as a) = (* Recibe una cadena y un autómata a verificar *)
+   
+   (* Función auxiliar recursiva que realiza la verificación *)
+   let rec aux = function
+        (Conjunto [], _) -> (* Si el conjunto actual es vacío, la cadena no es aceptada *)
+           false
+      | (actuales, []) -> (* Si no quedan más símbolos por leer y el conjunto actual tiene un estado final, la cadena es aceptada *)
+           not (es_vacio (interseccion actuales finales))
+      | (actuales, simbolo :: t) -> (* se utiliza la función epsilon_cierre para calcular los estados alcanzables a partir del estado inicial y las transiciones epsilon. Luego, se recorre la cadena de entrada y se van avanzando en el autómata con la función avanza y calculando los estados alcanzables con epsilon_cierre en cada paso. Si al finalizar la cadena se alcanza un estado final, se devuelve verdadero, en caso contrario, falso.*)
+           aux ((epsilon_cierre (avanza simbolo actuales a) a), t)
+   in
+      aux ((epsilon_cierre (Conjunto [inicial]) a), cadena) (* Inicia la recursión con el cierre-épsilon del estado inicial *)
+   ;;
+/////////////////
+(*Funciones para hacer*)
+let escaner_afn cadena (Af (_, _, inicial, _, finales) as a) =
+  (* Función auxiliar recursiva que determina si el autómata reconoce una cadena dada *)
+  let rec reconoce_cadena = function
+    (* Caso base: si no hay estados actuales o caracteres restantes, la cadena no es reconocida *)
+    (Conjunto [], _) -> false
+    (* Caso base: si no hay caracteres restantes y hay algún estado actual que sea final, la cadena es reconocida *)
+  | (actuales, []) -> not (es_vacio (interseccion actuales finales))
+    (* Caso recursivo: avanzamos el autómata al siguiente símbolo y seguimos verificando la cadena *)
+  | (actuales, simbolo :: t) -> reconoce_cadena (avanza simbolo actuales a, t) (*se omite el uso de la función de transición y se llama recursivamente a reconoce_cadena con el conjunto de estados siguientes directamente y la subcadena restante.*)
+  in
+  (* Comenzamos verificando la cadena desde el estado inicial del autómata *)
+  reconoce_cadena (Conjunto [inicial], cadena);;
+
+//////////////////////
+
+let escaner_afd cadena (Af (_, _, inicial, delta, finales) as a) =
+  let rec reconoce_cadena = function
+    (Conjunto [], _) -> false (* Si el conjunto de estados actuales es vacío, la cadena no es reconocida *)
+  | (actuales, []) -> not (es_vacio (interseccion actuales finales)) (* Si la cadena ha sido completamente procesada y los estados actuales tienen intersección con los estados finales, la cadena es reconocida *)
+  | (actuales, simbolo :: t) -> 
+      let siguientes = avanza simbolo actuales a in (* se llama a la función de transición avanza para obtener el conjunto de estados siguientes a partir del símbolo actual y los estados actuales. Luego, se llama recursivamente a reconoce_cadena con los estados siguientes y la subcadena restante.*)
+      reconoce_cadena (siguientes, t) (* *)
+  in
+  reconoce_cadena (Conjunto [inicial], cadena);; (* Se inicia la función con el conjunto de estados iniciales y la cadena *)
+
+
+ 

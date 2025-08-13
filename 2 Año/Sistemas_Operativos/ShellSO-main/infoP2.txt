@@ -1,0 +1,74 @@
+Allocate**
+Malloc
+1) int id = SHM GET (KEY,SIZE,IPC.CREAT)
+2) void *ptr= SHM AT (ID,NULL,0)
+
+int fd = open();
+READ (fd,BUFF,NBYTES);
+WRITE (fd,BUFF,NBYTES);
+
+NMAP(NULL,SIZE,PROT_READ|PROT_WRITE,MAP_SHARED)
+
+Deallocate**
+
+Guardar la direccion de memoria ,que tamaño tiene, la hora en que se hizo 
+la reserva , el tipo(malloc ,shared, mapped)
+Usar Time_t tim = TIME(NULL) 
+
+Usar free para borrar proceso de la lista
+
+Desasignar con shmt -->  SHMDT(void * del shm)
+
+y para nmap --> MUNMAP(void * del nmp, lenght)
+
+Fijarse porque alomejor tenemos que hacer como un atoi (de cadena a int)
+pero en este caso con num de tamaño long SE USA --> sizeof(void *) 8  
+					            sizeof (int) 
+                                                    sizeof(long) 8
+                                                    unsigned long  casi igual a void * 
+                                         USAR ESTE   void *ptr = (void*) STROUL(tokens[1],NULL,16);
+
+i-o*** input_output
+
+
+memdump**
+
+Probar
+allocate -nmap fichero permisos
+memdump direccion tam
+
+La primera linea como caracter y la segunda como numero en la cual imprimiran el ascii correspondiente
+del caracter
+
+
+fillmem en el shell de prueba** nosotros es memfill
+
+allocate -malloc 1000
+fillmem direccion 100 codigoASCCI del caracter
+memdump direccion 100
+
+memory **
+
+memory -bocks
+
+memory -funcs es hacer un printf ("%p",autores) , imprimir la direccion de memoria de funciones del programa y
+otras de libreria que creamos nosotros como autores
+
+memory -vars imprimir tres variables locales,globales,estaticas(static) dentro no hacer falta que sean globales.
+
+memory -all todo lo de vars y funcs
+
+memory -pmap mapa del fichero  , hay zonas anonimas tambien --> zona de memoria reservada sin mas
+Funcion ya hecha de nmap en ayuda
+
+recurse**
+
+recurse 3 por ejemplo
+
+Invocar una funcion n veces recursiva
+
+
+
+
+
+

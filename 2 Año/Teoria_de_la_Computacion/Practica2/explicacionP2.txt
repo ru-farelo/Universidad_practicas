@@ -1,0 +1,145 @@
+//////////////////////////
+let es_fnc (Gic (_, terminales, reglas, inicio)) =
+  (* Esta funcion determina si un simbolo es terminal *)
+  let es_terminal = function
+    | Terminal _ -> true
+    | No_terminal _ -> false
+  in
+  (* Esta funcion determina si un simbolo es no terminal *)
+  let es_no_terminal simbolo =
+    not (es_terminal simbolo)
+  in
+  (* Definición de la función cumple_requisitos para ser FNC*)
+  let cumple_requisitos regla =
+    match regla with
+    | Regla_gic (simbolo, simbolos) ->
+      match simbolos with
+      | [] -> simbolo = inicio (*la regla solo es válida si el símbolo a la 
+izquierda de la regla es el símbolo inicial de la gramática*)
+      | [s] -> es_terminal s (* La regla solo puede tener un símbolo terminal *)
+      | [s1; s2] -> es_no_terminal s1 && es_no_terminal s2 (* La regla solo puede tener dos símbolos no terminales *)
+      | _ -> false (* Si la regla no cumple ninguno de los requisitos, 
+no es válida *)
+  in
+  (* Comprobamos si todas las reglas cumplen los requisitos *)
+  let reglas_validas = for_all cumple_requisitos reglas in
+  (* Comprobamos si todos los símbolos terminales son válidos *)
+  let terminales_validos = for_all es_terminal terminales in
+  (* Devolvemos verdadero si todas las reglas son válidas y todos los
+ símbolos terminales son válidos *)
+  reglas_validas && terminales_validos;;
+
+////////////////////////////////////
+(*Destacar que va rellenando la piramide de forma invertida*)
+let cyk input_symbols (Gic (no_terminal, terminales, reglas, inicio)) =
+  let n = List.length input_symbols in  (* Obtiene el número de símbolos en 
+la cadena de entrada *)
+  if n = 0 || not (es_fnc (Gic (no_terminal, terminales, reglas, inicio))) then 
+ (* Verifica si la cadena de entrada es válida(si la longitud de la cadena es 0) 
+  y si la gramática está en FNC *)
+    raise (InvalidInput "La cadena de entrada debe tener al menos un símbolo y la gramática debe estar en FNC.")
+  else
+    let m = Array.make_matrix n n [] in  (* Crea una matriz vacía de nxn
+ donde cada celda contiene una lista vacía *)
+    for i = 0 to n - 1 do
+      let simbolos = List.filter_map (fun (Regla_gic (simbolo, simbolos)) -> 
+ (* Obtenemos los símbolos no terminales que derivan en los símbolos terminales 
+en la posición i *)
+        if List.length simbolos = 1 && List.hd simbolos = 
+List.nth input_symbols i then 
+          Some simbolo
+        else
+          None
+      ) (list_of_conjunto reglas) in 
+      m.(i).(i) <- simbolos  (* Asigna los símbolos no terminales que derivan 
+en los símbolos terminales en la posición i a la diagonal de la matriz 
+, es decir , donde la fila y columna es el mismo indice i, Esta matriz bidimensional se rellena
+de forma diagonal, en la diagonal principal rellena las cadenas de longitud 1*)
+    done;
+    for j = 1 to n - 1 do  (* Itera sobre las subcadenas de la cadena de entrada 
+de longitud j + 1, es decir, Se parte de subcadenas de longitud 2 (j = 1) 
+hasta la longitud de la cadena completa (n - 1)., avanzando hacia arriba
+ en la matriz amedida que se consideran subcadenas más largas *)
+      for i = 0 to n - j - 1 do(*i es el indice de inicio de cadena
+ y j el de final de la subcadena*)
+        let simbolos = ref [] in
+        for k = i to i + j - 1 do  (*se itera sobre los puntos de división de
+ la subcadena, es decir subcadenas mas pequeñas, desde i hasta i + j - 1. 
+se divide la subcadena en 
+dos partes, la primera desde i hasta k, y la segunda desde k+1 hasta i+j.,
+Para cada subcadena de longitud "j" que comienza en la posición "i" de la entrada, 
+se dividen en dos subcadenas más cortas "b" y "c" en la posición k ,
+Basicamente con k buscamos iterar sobre 
+estas subcadenas generadas a partir de la cadena principal*)
+          let b = m.(i).(k) in
+          let c = m.(k+1).(i+j) in
+          List.iter (fun (Regla_gic (simbolo, simbolos')) -> 
+ (* Para cada punto de división k, se obtienen los símbolos no terminales
+ que derivan en la subcadena b que va desde i hasta k, y los símbolos no 
+terminales que derivan en la subcadena c que va desde k+1 hasta i+j.*)
+            if List.length simbolos' = 2 && List.mem (List.hd simbolos') b
+ && List.mem (List.hd (List.tl simbolos')) c then
+              simbolos := simbolo :: !simbolos
+          ) (list_of_conjunto reglas);
+        done;
+        m.(i).(i+j) <- !simbolos 
+ (* Si se encuentra una regla de producción en la que el primer 
+símbolo de la parte derecha es b y el segundo símbolo de la parte derecha es c,
+ entonces el símbolo no terminal de la parte izquierda de la regla 
+se agrega a una lista de símbolos no terminales que derivan en la subcadena
+ i a i+j.
+Al final de la iteración de k, la lista de símbolos no terminales que derivan en
+ la subcadena i a i+j se asigna a la posición m.(i).(i+j) de la matriz m. *)
+      done;
+    done;
+    List.mem inicio m.(0).(n-1);;  (* Verifica si el símbolo inicial de la 
+gramática deriva en la cadena de entrada *)
+
+
+
+//////////// 
+
+Gramática:
+S -> AB | BC
+A -> BA | a
+B -> CC | b
+C -> AB | a
+Cadena de entrada:
+
+abaa
+
+Paso 1: Inicialización de la matriz
+
+| a | b | a | a |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+En la diagonal principal de la matriz, se buscan todas las producciones que generan subcadenas de longitud 1.
+
+| a | b | a | a |
+|---|---|---|---|
+| C | B | C | A |
+|   | C | A |   |
+|   |   | A |   |
+|   |   |   | A |
+Paso 2: Combinación de producciones
+
+| a | b | a | a |
+|---|---|---|---|
+| C | B | C | A |
+|   | C | A | B |
+|   |   | S | A |
+|   |   |   | S |
+En cada celda fuera de la diagonal principal, se busca una combinación de dos producciones que generan
+ las dos subcadenas más cortas que forman la subcadena actual, y que permiten generar la subcadena completa.
+
+Paso 3: Verificación del símbolo inicial
+
+| a | b | a | a |
+|---|---|---|---|
+| C | B | C | A |
+|   | C | A | B |
+|   | S | S | A |
+|   |   |   | S |

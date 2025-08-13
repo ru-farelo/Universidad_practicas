@@ -1,0 +1,266 @@
+(*Ruben Fernandez Farelo -> Login : ruben.fernandez.farelo@udc.es*)
+(* rlwrap ocaml *)
+
+(* PRÁCTICA 1 *)
+
+#load "talf.cma";;
+open Conj;;
+open Auto;;
+open Ergo;;
+open Graf;;
+
+(* EXERCICIO 1 A*)
+     
+let es_afne (af : af) : bool =
+  let epsilon = Terminal "" in
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  let es_afne_estado estado =
+    let transiciones_epsilon = List.filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo = epsilon) (Conj.list_of_conjunto transiciones) in
+    let existe_transicion_epsilon = not (List.length transiciones_epsilon = 0) in
+    let transiciones_estado = List.filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo <> epsilon) (Conj.list_of_conjunto transiciones) in
+    let destinos = List.map (fun (Arco_af(_, estado_destino, _)) -> estado_destino) transiciones_estado in
+    let existe_epsilon_destino = List.exists (fun estado_destino -> List.exists (fun (Arco_af(origen, _, simbolo)) -> origen = estado_destino && simbolo = epsilon) (Conj.list_of_conjunto transiciones)) destinos in
+    existe_transicion_epsilon || existe_epsilon_destino
+  in
+  let estados = Conj.list_of_conjunto (match af with | Af(estados, _, _, _, _) -> estados) in
+  List.exists es_afne_estado estados;;
+
+  
+(* Ejemplo para comprobar con un AFNE , tiene que dar true, si tiene un epsilon ya daria true si no existe ninguno da false *)
+let af_example = Af (Conjunto [Estado "0"; Estado "1"; Estado "2"],
+Conjunto [Terminal "a"; Terminal "b"],
+Estado "0",
+Conjunto [Arco_af (Estado "0", Estado "1", Terminal "a");
+Arco_af (Estado "1", Estado "2", Terminal "");
+Arco_af (Estado "2", Estado "0", Terminal "a")],
+Conjunto [Estado "2"]);;
+
+es_afne af_example;; (*Si nos fijamos tenemos dos arcos epsilon , se puede usar el mismo pero quitando los epsilon y daria*)
+
+(*EXERCICIO 1 B*)
+
+let es_afn (af : af) : bool =
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  let es_afn_estado estado =
+    let transiciones_estado = List.filter (fun (Arco_af(estado_origen, _, simbolo)) -> estado_origen = estado && simbolo <> Terminal "") (Conj.list_of_conjunto transiciones) in
+    let destinos = List.map (fun (Arco_af(_, estado_destino, _)) -> estado_destino) transiciones_estado in
+    let destinos_sin_repeticion = List.sort_uniq compare destinos in
+    List.length destinos <> List.length destinos_sin_repeticion
+  in
+  let estados = Conj.list_of_conjunto (match af with | Af(estados, _, _, _, _) -> estados) in
+  List.exists es_afn_estado estados;;
+
+
+(* Ejemplo para comprobar con un AFN , tiene que dar true , para false se puede usar el ejemplo anterior*)
+
+let af_example = Af (Conjunto [Estado "0"; Estado "1"],
+Conjunto [Terminal "a"; Terminal "b"],
+Estado "0",
+Conjunto [Arco_af (Estado "0", Estado "0", Terminal "a");
+Arco_af (Estado "0", Estado "1", Terminal "a");(*Si quitamos este da false*)
+Arco_af (Estado "0", Estado "1", Terminal "b");
+Arco_af (Estado "1", Estado "0", Terminal "a");
+Arco_af (Estado "1", Estado "1", Terminal "b")],
+Conjunto [Estado "1"]);;
+
+es_afn af_example;;
+
+
+(*EJERCICIO 1 C *)
+
+let es_afd (af : af) : bool =
+  let transiciones = match af with
+    | Af(_, _, _, transiciones, _) -> transiciones
+  in
+  let es_determinista_estado estado =
+    let simbolos = Conj.list_of_conjunto (match af with | Af(_, simbolos, _, _, _) -> simbolos) in
+    List.for_all (fun simbolo ->
+        let transiciones_estado_simbolo = List.filter (fun (Arco_af(estado_origen, _, simbolo')) -> estado_origen = estado && simbolo' = simbolo) (Conj.list_of_conjunto transiciones) in
+        List.length transiciones_estado_simbolo = 1
+      ) simbolos
+  in
+  let estados = Conj.list_of_conjunto (match af with | Af(estados, _, _, _, _) -> estados) in
+  List.for_all es_determinista_estado estados;;
+
+(*Pseudo*)
+  (*
+ Funcion es_Afd (automata)
+   simbolos_entrada_inicial = lista de simbolos de entrada de las transiciones del estado inicial del automata
+   estados_visitados = [estado inicial del automata]
+  Para cada estado en estados_visitados:
+       transicciones_estado = lista de transicciones del estado en el automata
+       simbolos_entrada 0 lista de simbolos de entrada de las transicciones_estado
+       Si hay algun simbolo de entrada duplicado en simbolos_entrada:
+       Devolver false
+  Para cada simbolo en simbolos_entrada:
+      destino: estado de destino de la transiccion correspondiente al simbolo
+         SI destino no es un estado del automata:
+            DEvolver true
+         SI destino no esta en estados_visitados:
+            Añadir destino a estados_visitados
+   DEvolver true
+  
+  
+  *)
+
+(*ejemplo para probar es un AFD donde todas las transiciones posibles estan definidas y no existe una entrada con dos salidas posibles*)
+let af_example = Af (Conjunto [Estado "0"; Estado "1"],
+                     Conjunto [Terminal "a"; Terminal "b"],
+                     Estado "0",
+                     Conjunto [Arco_af (Estado "0", Estado "1", Terminal "a");
+                               Arco_af (Estado "0", Estado "0", Terminal "b");
+                               Arco_af (Estado "1", Estado "1", Terminal "b");
+                               Arco_af (Estado "1", Estado "1", Terminal "a")],
+                     Conjunto [Estado "1"]) ;;
+s
+es_afd af_example;;
+
+
+(*EJERCICIO 2*)
+(*v1*)
+
+(*
+recorrido en anchura para simular los dos automatas en paralelo leyendo una misma entrada comparando si los dos automatas llevando una cuenta de los estados procesados y comprobando si fueron visitados , se pregunta si son finales ambos y si no lo son se mira cuales son los dos pares siguientes.
+
+Se usan dos colas 
+
+Se podria usar una funcion aux de minimizacion
+
+
+Funcion equivalentes (automata1,automata2):
+ estados 1 = estados del automata1
+ estados_finales = estaso finales de automata1
+ estados2 = estado del automata2
+ estados_finales2 = estados finales dela automata2
+ alfabeto = alfabeto del automata  y del automata2
+ estados_visitados = conjunto vacio
+ cola = [(estado_inicial1,estado_inicial2)]
+ Mientras cola no este vacia:
+     (estado_actual1,estado_actual2) = extraer el primer elemento de la cola
+     Si (estado_Actual1,estado_actual2) esta en estados_visitados:
+        Continuar con el siguiente elemento de la cola
+     Si estado_Actual1 es final y estado_actual2 no es final,o viceversa:
+        Devolver false
+     Si no:
+        Añadir (estado_actual1, estado_actual2) a estados_visitados
+        Para cada simbolo del alfabeto:
+              nuevo_estado1 = estado alcanzado desde estado_Actual1 con el simbolo
+              nuevo_estado2 = estado alcanzado desde estado_actual2 con el simbolo
+              Añadir (nuevo_estado1, nuevo_estado2) a la cola
+       Devolver true       
+
+*)
+
+let singleton x = agregar x conjunto_vacio
+
+let rec list_of_estado = function
+  | Estado s -> [s];;
+  
+let list_of_conjunto lista =
+  List.map (fun estado -> Conj.singleton (Estado.to_string estado)) (List.flatten (List.map list_of_estado lista))
+  |> List.fold_left Conj.union Conj.conjunto_vacio
+
+let equivalentes (Af (estados1, simbolos1, estado_inicial1, transiciones1, estados_finales1)) (Af (estados2, simbolos2, estado_inicial2, transiciones2, estados_finales2)) : bool =
+  let visitados = Hashtbl.create 16 in
+  let cola = Queue.create () in
+let primer_par = ([estado_inicial1], [estado_inicial2]) in
+  Queue.add primer_par cola;
+  Hashtbl.add visitados primer_par true;
+  let rec bfs (encontrado_discrepancia : bool) : bool =
+    if encontrado_discrepancia || Queue.is_empty cola then encontrado_discrepancia
+    else
+      let (estados1,estados2) = Queue.take cola in
+      if List.mem (list_of_conjunto estados1) estados_finales1 <> List.mem (list_of_conjunto estados2) estados_finales2 then true
+      else
+        let nuevos_pares =
+                 List.fold_left
+            (fun acc (origen1, s, destino1) ->
+                if origen1 = estado_inicial1 then
+                  let destino2 =
+                  try List.assoc (Estado.to_string estado_inicial2, s) (List.map (fun (x, y, z) -> ((Estado.to_string x), y), (Estado.to_string z)) transiciones2)
+                    with Not_found -> failwith "No se encontró transición"
+                  in
+                let par = (Estado destino1, Estado destino2) in
+                if not (Hashtbl.mem visitados par) then (
+                    Queue.add par cola;
+                    Hashtbl.add visitados par true
+                );
+                  par :: acc
+                else
+                  acc
+            )
+            []
+              a1.transiciones
+          in
+
+        bfs (encontrado_discrepancia || List.exists (fun (x, y) -> not (Hashtbl.mem visitados (x, y))) nuevos_pares)
+  in
+  bfs false;;
+
+
+(*EJERCICIO OPCIONAL*)
+(* APARTADO A*)
+
+let escaner_afn cadena (Af (_, _, inicial, _, finales) as a) =
+  let rec reconoce_cadena = function
+    (Conjunto [], _) -> false
+  | (actuales, []) -> not (es_vacio (interseccion actuales finales))
+  | (actuales, simbolo :: t) -> reconoce_cadena (avanza simbolo actuales a, t)
+  in
+  reconoce_cadena (Conjunto [inicial], cadena);;
+
+(*PRUEBA, primero pasamos un string a una lista de simbolos y luego le pasamos un automata*)  
+let rec string_to_simbolos = function
+  | "" -> []
+  | s -> Terminal (String.make 1 (String.get s 0)) :: string_to_simbolos (String.sub s 1 (String.length s - 1))
+
+let cadena = "aab";;
+
+let cadena1 = string_to_simbolos cadena;;
+ 
+let af_example = Af (Conjunto [Estado "0"; Estado "1"],
+Conjunto [Terminal "a"; Terminal "b"],
+Estado "0",
+Conjunto [Arco_af (Estado "0", Estado "0", Terminal "a");
+Arco_af (Estado "0", Estado "1", Terminal "a");
+Arco_af (Estado "0", Estado "1", Terminal "b");
+Arco_af (Estado "1", Estado "0", Terminal "a");
+Arco_af (Estado "1", Estado "1", Terminal "b")],
+Conjunto [Estado "1"]);;
+
+(*tiene que dar true*)
+
+(*APARTADO B*)
+
+let escaner_afd cadena (Af (_, _, inicial, delta, finales) as a) =
+  let rec reconoce_cadena = function
+    (Conjunto [], _) -> false
+  | (actuales, []) -> not (es_vacio (interseccion actuales finales))
+  | (actuales, simbolo :: t) -> 
+      let siguientes = avanza simbolo actuales a in
+      reconoce_cadena (siguientes, t)
+  in
+  reconoce_cadena (Conjunto [inicial], cadena);;
+
+(*PRUEBA, primero pasamos un string a una lista de simbolos y luego le pasamos un automata*)  
+let rec string_to_simbolos = function
+  | "" -> []
+  | s -> Terminal (String.make 1 (String.get s 0)) :: string_to_simbolos (String.sub s 1 (String.length s - 1))
+
+let cadena = "aab";;
+
+let cadena1 = string_to_simbolos cadena;;
+ 
+let af_example = Af (Conjunto [Estado "0"; Estado "1"],
+                     Conjunto [Terminal "a"; Terminal "b"],
+                     Estado "0",
+                     Conjunto [Arco_af (Estado "0", Estado "1", Terminal "a");
+                               Arco_af (Estado "0", Estado "0", Terminal "b");
+                               Arco_af (Estado "1", Estado "1", Terminal "b");
+                               Arco_af (Estado "1", Estado "1", Terminal "a")],
+                     Conjunto [Estado "1"]) ;;
+

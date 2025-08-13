@@ -1,0 +1,46 @@
+(*Ruben Fernandez Farelo -> Login : ruben.fernandez.farelo@udc.es*)
+(* rlwrap ocaml *)
+
+(* PRÁCTICA 1 *)
+
+
+#load "talf.cma";;
+open Conj;;
+open Auto;;
+open Ergo;;
+open Graf;;
+
+
+(* EXERCICIO 1 *)
+let rec tiene_epsilon_transiciones = function
+  | [] -> false
+  | Arco_af (s1, s2, simbolo)::xs ->
+      if simbolo = No_terminal "epsilon" || s1 = s2
+      then true
+      else tiene_epsilon_transiciones xs;;
+
+let es_afne (af : af) : bool =
+  let Af (_, _, _, transiciones, _) = af in
+  tiene_epsilon_transiciones (conjunto_of_conjunto transiciones);;
+
+
+(* Ejemplo para comprobar *)
+let af_ejemplo = Auto.from_lists
+  [0; 1; 2]
+  ['a'; 'b']
+  [(0, Auto.Eps, 1); (1, 'a', 2); (0, 'b', 2)]
+  0
+  [2];;
+
+es_afne af_ejemplo;;
+
+(* Ejemplo para comprobar *)
+let af_ejemplo = Auto.from_lists
+  [0; 1; 2]
+  ['a'; 'b']
+  [(0, Auto.Eps, 1); (1, 'a', 2); (0, 'b', 2)]
+  0
+  [2];;
+
+es_afne af_ejemplo;;
+

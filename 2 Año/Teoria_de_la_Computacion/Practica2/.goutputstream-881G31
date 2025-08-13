@@ -1,0 +1,51 @@
+(*Ruben Fernandez Farelo*)
+(*PRACTICA 2*)
+
+(*Ejercicio 1*)
+#load "talf.cma";;
+open Conj;;
+open Auto;;
+open Ergo;;
+open Graf;;
+
+(*Funciones auxiliares del modulo List a Conj utilizadas en la practica a mayores de la librería*)
+
+(*Verifica si todos los elemento del conjunto cumplen una función booleana y devuelve true o false*)
+let for_all f (Conjunto l) =
+  List.for_all f l;;
+
+let es_fnc (Gic (_, terminales, reglas, inicio)) =
+  let es_terminal = function
+    | Terminal _ -> true
+    | No_terminal _ -> false
+  in
+  let es_no_terminal simbolo =
+    not (es_terminal simbolo)
+  in
+  let cumple_requisitos regla =
+    match regla with
+    | Regla_gic (simbolo, simbolos) ->
+      match simbolos with
+      | [] -> simbolo = inicio
+      | [s] -> es_terminal s
+      | [s1; s2] -> es_no_terminal s1 && es_no_terminal s2
+      | _ -> false
+  in
+  let reglas_validas = for_all cumple_requisitos reglas in
+  let terminales_validos = for_all es_terminal terminales in
+  reglas_validas && terminales_validos;;
+  
+(* Prueba *)
+let g = gic_of_string "S A B C;a b; S;
+			S -> A B | B C;
+			A -> B A | a;
+			B -> C A | b;
+			C -> A B | a; ";;
+			
+es_fnc g;; (* devuelve true *)
+		
+(*Ejercicio 2*)
+
+
+
+

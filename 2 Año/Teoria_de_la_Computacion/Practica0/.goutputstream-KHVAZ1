@@ -1,0 +1,65 @@
+(*Ejercicio 1*)
+
+let mapdoble f g l = 
+  let rec aux n = function
+    | [] -> []
+    | h :: t -> (if n mod 2 = 0 then f h else g h) :: aux (n + 1) t
+  in
+  aux 0 l;;
+
+(*
+a)
+Implementamos la funcion y la explicacion de la misma y la probamos
+Para probar : mapdoble (function x -> x) (function x -> -x) [1;1;1;1;1];;
+
+b)
+El tipo de la funcion es el siguiente
+# mapdoble;;
+- : ('a -> 'b) -> ('a -> 'b) -> 'a list -> 'b list = <fun>
+ 
+
+c)
+El valor seria erroneo:
+Dara error de tipo, ya que no se podrá aplicar la segunda función, puesto que en la primera función estamos aplicando
+un tipado int y en la segunda un tipado string, como el resultado final es una única lista y no puede haber listas
+con elementos de diferente tipo, dará error de tipo.
+
+d)
+El tipo seria el siguiente:
+# let y = function x -> 5 in mapdoble y;;
+- : ('_weak2 -> int) -> '_weak2 list -> int list = <fun>
+
+*)
+
+(*Ejercicio 2*)
+
+let rec primero_que_cumple f l = match l with
+	[] -> raise(Not_found)
+	| h::t when f h -> h
+	| h::t -> primero_que_cumple f t;;
+		
+	
+(*
+b)
+primero_que_cumple;;
+- : ('a -> bool) -> 'a list -> 'a = <fun>	
+Probar ->  primero_que_cumple ((<) 2) [0;1;2;3];;
+*)	
+	
+let existe f l = try ((primero_que_cumple f l); true)
+              with Not_found -> false;;	
+	(* Ejercicio 2 *)
+(*
+Para probar: existe ((<) 4) [6;5;4;3];;
+*)
+
+
+
+
+
+
+
+
+
+
+
