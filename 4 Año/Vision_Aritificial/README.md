@@ -58,7 +58,6 @@ El proyecto **Visión Artificial** constituye una implementación completa de un
 ```
 Vision_Artificial/
 ├── P1/                                 # Práctica 1: Fundamentos de Procesamiento
-│   └── VA-Practicas/
 │       ├── p1.py                      # Algoritmos fundamentales de visión artificial
 │       ├── imagenes.py                # Funciones de carga y visualización de imágenes
 │       ├── test.py                    # Tests de validación de funciones básicas
@@ -68,7 +67,7 @@ Vision_Artificial/
 │       └── VA-P1-2324.pdf            # Documentación técnica
 │
 └── P2/                                 # Práctica 2: Sistema de Reconocimiento Completo de Señales de Tráfico
-    └── VA-PRACTICA-P2-main/
+    └──P2/
         ├── p2.py                      # Clasificación avanzada (Hough, aproximación poligonal)
         ├── test.py                    # Tests de máscaras y clasificación de señales
         ├── main.py                    # Pipeline completo de detección y clasificación
