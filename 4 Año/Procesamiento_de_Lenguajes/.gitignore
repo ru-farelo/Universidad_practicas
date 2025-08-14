@@ -1,0 +1,4 @@
+lex.yy.c
+practica.tab.*
+practica.output
+run

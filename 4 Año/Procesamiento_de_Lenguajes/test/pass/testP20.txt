@@ -1,0 +1,7 @@
+GET /index.html HTTP/1.1
+Host: www.ejemplo.com
+User-Agent: Mozilla/5.0 (Ubuntu)
+Accept: text/html
+Accept-Encoding: gzip
+Accept-Language: es-ES, es;q=0.9, en;q=0.8
+Content-Length: 0

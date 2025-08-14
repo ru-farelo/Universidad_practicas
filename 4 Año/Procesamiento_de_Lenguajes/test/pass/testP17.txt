@@ -1,0 +1,7 @@
+POST /test HTTP/1.1
+Host: example.com
+
+<html>
+<head><title>Prueba</title></head>
+<body><h1>Hola, mundo</h1></body>
+</html>

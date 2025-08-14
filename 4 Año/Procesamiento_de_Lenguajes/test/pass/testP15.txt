@@ -1,0 +1,5 @@
+GET /api/users HTTP/1.1
+Host: www.example.com
+Cache-Control: public, private
+Accept: text/html, image/png
+Accept-Encoding: gzip, deflate, br

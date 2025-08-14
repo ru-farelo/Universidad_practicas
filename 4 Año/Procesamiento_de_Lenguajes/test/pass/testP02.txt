@@ -1,0 +1,1 @@
+DELETE /api/item/123 HTTP/1.0
