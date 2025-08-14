@@ -1,0 +1,15 @@
+# Cargar el archivo
+c("pool_trabajadores.ex")
+
+# Iniciar el servidor
+{:ok, pid} = Servidor.iniciar(3)
+
+# Definir trabajos
+trabajos = [fn -> 1 + 1 end, fn -> 2 * 2 end, fn -> 3 - 1 end, fn -> 5 * 5 end]
+# trabajos = [fn -> 1 + 1 end, fn -> 2 * 2 end, fn -> 3 - 1 end]
+
+# Enviar trabajos y obtener resultados 
+Servidor.enviar_trabajos(pid, trabajos)
+
+# Detener el servidor
+Servidor.detener_servidor(pid)

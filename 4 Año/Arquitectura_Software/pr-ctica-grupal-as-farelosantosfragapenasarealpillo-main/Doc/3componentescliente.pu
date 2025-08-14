@@ -1,0 +1,19 @@
+@startuml diagrama_componentes_servidor_clientes
+!define C4_COMPONENT
+!include <C4/C4_Component>
+title Diagrama de Componentes - Servidor de Clientes
+
+Container_Boundary(ServidorClientes, "Servidor de Clientes") {
+    Component(servicioLogin, "Servicio de Login (Cliente)", "Gestiona autenticación y registro con encriptado de contraseñas.")
+    Component(servicioPistasCliente, "Servicio de Pistas (Cliente)", "Permite realizar reservas y cancelaciones.")
+}
+ComponentDb(databaseUsuarios, "Base de Datos de Usuarios", "Elixir (en memoria)", "Almacena usuarios, contraseñas encriptadas y roles.")
+ComponentDb(databaseReservas, "Base de Datos de Pistas", "Elixir (en memoria)", "Registra reservas y disponibilidad de pistas.")
+
+Rel(servicioLogin, databaseUsuarios, "Envía [registrarse, Iniciar sesión, actualizar contraseña, eliminar usuario]")
+Rel(databaseUsuarios, servicioLogin, "Devuelve [resultados encriptados]")
+
+Rel(servicioPistasCliente, databaseReservas, "Envía [reservar pista, liberar pista, ver reservas]")
+Rel(databaseReservas, servicioPistasCliente, "Devuelve [resultados]")
+
+@enduml

@@ -1,0 +1,200 @@
+
+(*Multilinea*)
+lambda x : 
+Nat. x;;
+
+(*Suma*)
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m 
+else succ (sum (pred n) m)
+in
+sum 25 25;;
+
+(*MULTIPLICACION*)
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m else succ (sum (pred n) m) in
+letrec mult : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then 0 else sum (mult (pred n) m) m in
+mult 3 4;;
+
+(*FIBONACCI*)
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m else succ (sum (pred n) m) in
+letrec fib : Nat -> Nat =
+lambda n : Nat. if iszero n then 0 else if iszero (pred n) then 1 else
+sum (fib (pred (pred n))) (fib (pred n))
+in fib 6;;
+
+(*FACTORIAL*)
+letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m else succ (sum (pred n) m) in
+letrec mult : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then 0 else sum (mult (pred n) m) m in
+letrec fac : Nat -> Nat =
+lambda n : Nat. if iszero n then 1 else mult n (fac (pred n))
+in fac 5;;
+
+(*Prueba con fix *)
+
+lambda n:Nat. lambda m:Nat. if iszero n then m else succ 
+(((fix (lambda sum:Nat -> Nat -> Nat. lambda n:Nat. lambda m:Nat. if iszero n then 
+m else succ ((sum (pred n)) m))) (pred n)) m);;
+
+(* Contexto de definiciones globales*)
+x = 5;;
+succ x;;
+f = lambda y : Nat. x;;
+f 3;;
+
+(*Alias*)
+N = Nat;;
+NinN = N -> N ;;
+N3 = N -> NinN;;
+letrec sum : N3 =
+lambda n : Nat. lambda m : Nat. if iszero n then m 
+else succ (sum (pred n) m)
+in
+sum 5 5;; 
+
+
+(*Strings*)
+"Hola Mundo!";;
+concat "Hola, " "mundo!";;
+lambda s : String. s;;
+(lambda s : String. s) "abc" ;;
+
+(*Tuples*)
+
+{5 ,true,"abc"};;
+{5 ,true,"abc"}.1;;
+{5 ,true,"abc"}.4;;
+{5 ,{true,"abc"}};;
+{5 ,{true,"abc"}}.2.1;;
+t = {5 ,{true,"abc"}}.2.1;;
+
+
+(*Records*)
+{id=30,partido="Juventus vs Madrid"};;
+r = {text="Hola", n={x=5,y=10}, label=true};;
+r.text;;
+r.n;;
+r.n.x;;
+
+{x = 2, y = 5 , z= 0};;
+{x = 2, y = 5 , z= 0}.x;;
+r = {x = 2, y = 5 , z= 0}.x;;
+
+p = {na = {"Luis" ,"vidal"},e = 28 };;
+p.na;;
+p.na.1
+p.e;;
+
+(*Variantes*)
+Int = <pos:Nat, zero:Bool, neg:Nat>;;
+p3 = <pos=3> as Int;;
+z0 = <zero=true> as Int;;
+n5 = <neg=5> as Int;;
+p5 = <pos=5> as Int ;;
+n3 = <neg=3> as Int;;
+
+abs = L i : Int.
+case i of
+	<zero=z> => (<zero=true> as Int)
+	| <pos=p> => (<pos=p> as Int)
+	| <neg=n> => (<pos=n> as Int);;
+
+abs p3;;
+abs z0;;
+abs n5;;
+
+sum = letrec sum : Nat -> Nat -> Nat =
+lambda n : Nat. lambda m : Nat. if iszero n then m 
+else succ (sum (pred n) m)
+in
+sum ;;
+
+add =
+  letrec add : Int -> Int -> Int =
+    lambda i1 : Int. lambda i2 : Int.
+      case i1 of <zero=z1> => i2
+      | <pos=p1> =>
+          (case i2 of<zero=z2> => i1
+           | <pos=p2> => (<pos=sum p1 p2> as Int)
+           | <neg=n2> =>(if iszero p1 then
+                  if iszero n2 then <zero=true> as Int
+                  else <neg=n2> as Int
+                else
+                  if iszero n2 then <pos=p1> as Int
+                  else
+                    add (<pos=pred p1> as Int) (<neg=pred n2> as Int)))
+      | <neg=n1> =>   (case i2 of <zero=z2> => i1
+           | <pos=p2> => add i2 i1
+           | <neg=n2> => (<neg=sum n1 n2> as Int)) in add
+  ;;
+
+add p3 p5;;
+add p5 p3 ;;
+add p5 z0;;
+add z0 p5 ;;
+add p3 p5 ;;
+add n5 p3;;
+add p3 n5;;
+
+(*LISTAS*)
+
+nil[Nat];;
+cons[Nat] 3 nil [Nat];;
+l1 = cons[Nat] 8 (cons[Nat] 5 (cons[Nat] 7 nil[Nat]));;
+l2 = cons[Nat] 3 (cons[Nat] 4 (nil[Nat]));;
+l3 = cons[String] "a" (nil[String]);;
+
+isnil[Nat] l1;;
+head[Nat] l1;;
+tail[Nat] l1;;
+
+cons[Nat] 1 l1;;
+cons[String] "a" l1;;
+
+letrec length : (List[Nat]) -> Nat = 
+	lambda l : List[Nat]. 
+		if (isnil[Nat] l) then 
+			0 
+		else 
+			(succ (length (tail[Nat] l)))
+in length l1;;
+
+letrec append: List[Nat] -> List[Nat] -> List[Nat] =
+	lambda l1: List[Nat]. lambda l2: List[Nat].
+		if isnil[Nat] l1 then 
+			l2
+		else 
+			cons[Nat] (head[Nat] l1) (append (tail[Nat] l1) l2) 
+in append l1 l2;;
+
+f = lambda x:Nat . pred x;;
+
+letrec map : List[Nat] -> (Nat -> Nat) -> List[Nat] =
+	lambda lst: List[Nat]. lambda f: (Nat -> Nat). 
+		if (isnil[Nat] (tail[Nat] lst)) then
+			cons[Nat] (f (head[Nat] lst)) (nil[Nat])
+		else
+			cons[Nat] (f (head[Nat] lst)) (map (tail[Nat] lst) f)
+in map l2 f;;
+
+(* Subtipado *)
+(*Primero con registros*)
+let idr = lambda r : {}. r in 
+idr {x=0, y=1};;
+
+(lambda r : {x : Nat }. r. x ) {x = 0 ,y = 1};;
+
+
+(*Subtipado con funciones*)
+
+(* Casos con aplicaciones *)
+(L f:{x:Nat,y:Nat}->{x:Nat,y:Nat}. f {x=1,y=2}) (L x:{x:Nat,y:Nat}. {x=x.x,y=x.x});;
+
+(* Tipado basico *)
+(L f:{x:Nat,y:Nat}->{x:Nat,y:Nat}. f {x=1,y=2}) (L x:{x:Nat}. {x=x.x,y=x.x});;
+(L f:{x:Nat,y:Nat}->{x:Nat,y:Nat}. f {x=1,y=2}) (L x:{x:Nat,y:Nat}. {x=x.x,y=x.x,z=x.x});;
+(L f:{x:Nat,y:Nat}->{x:Nat,y:Nat}. f {x=1,y=2}) (L x:{x:Nat}. {x=x.x,y=x.x,z=x.x});;

@@ -1,0 +1,22 @@
+@startuml diagrama_componentes_servidor_administrador
+!define C4_COMPONENT
+!include <C4/C4_Component>
+title Diagrama de Componentes - Servidor de Administrador
+
+Container_Boundary(ServidorAdministrador, "Servidor de Administrador") {
+    Component(servicioLogin, "Servicio de Login (Administrador)", "Gestiona autenticación con encriptado de contraseñas y eliminacion de usuarios.")
+    Component(servicioPistasAdministrador, "Servicio de Pistas (Administrador)", "Permite visualizar todas las pistas.")
+}
+ComponentDb(databaseUsuarios, "Base de Datos de Usuarios", "Elixir (en memoria)", "Almacena usuarios, contraseñas encriptadas y roles.")
+ComponentDb(databaseReservas, "Base de Datos de Pistas", "Elixir (en memoria)", "Registra reservas y disponibilidad de pistas.")
+
+Rel(servicioLogin, databaseUsuarios, "Envía [Iniciar sesión, actualizar contraseña, eliminar usuario]")
+Rel(databaseUsuarios, servicioLogin, "Devuelve [resultados encriptados]")
+
+Rel(servicioPistasAdministrador, databaseReservas, "Envía [ver pistas]")
+Rel(databaseReservas, servicioPistasAdministrador, "Devuelve [resultados]")
+
+@enduml
+
+
+

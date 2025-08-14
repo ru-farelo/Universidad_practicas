@@ -1,5 +1,7 @@
 # Concurrencia y Paralelismo - Sistemas Distribuidos en C
 
+**📌 Resumen:** Proyecto académico avanzado que demuestra competencias en programación concurrente, paralela y distribuida usando C/C++ con pthreads y MPI. Incluye implementaciones desde sincronización básica hasta arquitecturas distribuidas de alto rendimiento, optimizadas para entornos multiprocesador.
+
 ## 📋 Descripción del Proyecto
 
 Conjunto de implementaciones avanzadas en **programación concurrente y paralela** utilizando C/C++ y tecnologías como **pthreads** y **MPI**. El proyecto abarca desde sincronización básica con mutex hasta sistemas distribuidos complejos, demostrando competencias en programación de sistemas de alto rendimiento.

@@ -1,0 +1,16 @@
+@startuml diagrama_contexto
+!define C4_CONTEXT
+!include <C4/C4_Component>
+
+title Diagrama de Contexto - Aplicación de Reservas de Pádel
+
+System_Ext(usuario, "Usuario", "Cliente que utiliza la aplicación.")
+System(sistemaPadel, "Aplicación de Reservas de Pádel", "Gestiona usuarios, roles, reservas de pistas.")
+Person(admin, "Administrador", "Personal encargado de gestionar el sistema.")
+
+Rel(usuario, sistemaPadel, "Envía solicitudes (registro, login, cambiar contraseña, reservar, cancelaciones, ver reservas, borrar cuenta)")
+Rel(sistemaPadel, usuario, "Devuelve respuestas (confirmación, resultados, errores)")
+Rel(admin, sistemaPadel, "Envía solicitudes (login, cambiar contraseña, ver pistas, borrar cuentas)")
+Rel(sistemaPadel, admin, "Devuelve respuestas (confirmación, resultados, errores)")
+
+@enduml

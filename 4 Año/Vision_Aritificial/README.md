@@ -1,7 +1,9 @@
 # Visión Artificial - 🚦 Sistema de Reconocimiento de Señales de Tráfico
 
-## Descripción del Proyecto
+📌 Sistema de visión por computador desarrollado desde cero en Python para detectar y clasificar señales de tráfico en tiempo real, con una precisión superior al 90% en pruebas controladas.  
+Incluye algoritmos propios de procesamiento de imágenes, optimización de rendimiento y aplicación directa en vehículos autónomos, smart cities y sistemas de inspección industrial.
 
+## Descripción del Proyecto
 El proyecto **Visión Artificial** constituye una implementación completa de un sistema de visión por computador especializado en la **detección y clasificación automática de señales de tráfico**. El desarrollo se centra en la implementación desde cero de algoritmos fundamentales de procesamiento de imágenes y computer vision, sin depender de librerías preconstruidas para los componentes core del sistema.
 
 ### Objetivos Principales

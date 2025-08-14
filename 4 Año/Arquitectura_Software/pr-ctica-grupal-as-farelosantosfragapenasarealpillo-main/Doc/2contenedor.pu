@@ -1,0 +1,43 @@
+@startuml diagrama_contenedor
+!define C4_COMPONENT
+!include <C4/C4_Component>
+title Diagrama de Contenedor - Aplicación de Reservas de Pádel
+
+Container_Boundary(AppPadel, "Aplicación de Reservas de Pádel") {
+    Component(directorio, "Directorio", "Coordina solicitudes de clientes y administradores hacia los servicios correspondientes.")
+
+    Container_Boundary(ServidorClientes, "Servidor de Clientes") {
+        Component(servicioCliente, "Servicio de Cliente", "Gestiona inicio de sesión y registro con encriptado, además de las reservas.")
+    }
+
+    Container_Boundary(ServidorAdmin, "Servidor de Administración") {
+        Component(servicioAdmin, "Servicio de Administración", "Gestiona pistas y visualiza reservas por usuarios.")
+    }
+
+    ComponentDb(database, "Bases de Datos", "Elixir (en memoria)", "Almacena datos de usuarios y pistas")
+}
+
+System_Ext(cliente, "Cliente", "Usuario que realiza reservas.")
+Person(administrador, "Administrador", "Gestor de la aplicación que administra pistas y usuarios.")
+
+Rel(cliente, directorio, "Envía [registrarse, Iniciar sesión, actualizar contraseña, eliminar usuario, reservar pista, liberar pista, ver reservas]")
+Rel(directorio, cliente, "Devuelve [confirmación, resultados, errores]")
+
+Rel(administrador, directorio, "Envía [Iniciar sesión, actualizar contraseña, eliminar usuario, ver pistas]")
+Rel(directorio, administrador, "Devuelve [confirmación, resultados, errores]")
+
+Rel(directorio, servicioCliente, "Redirige [registro, login, cambiar contraseña, reservar, cancelaciones, ver reservas, borrar cuenta]")
+Rel(servicioCliente, directorio, "Devuelve [confirmación, resultados, errores]")
+
+Rel(directorio, servicioAdmin, "Redirige [login, cambiar contraseña, ver pistas, borrar cuentas]")
+Rel(servicioAdmin, directorio, "Devuelve [confirmación, resultados, errores]")
+
+Rel(servicioCliente, database, "Consulta y actualiza datos de usuario, reservas.")
+Rel(database, servicioCliente, "Devuelve información de usuario, confirmaciones de reservas")
+
+Rel(servicioAdmin, database, "Consulta datos de pistas, usuarios y reservas.")
+Rel(database, servicioAdmin, "Devuelve información de pistas, usuarios, reservas")
+
+@enduml
+
+
