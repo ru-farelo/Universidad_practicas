@@ -1,0 +1,176 @@
+1: Ajustar intensidad
+
+La función adjustIntensity ajusta los niveles de intensidad de una imagen de entrada a un rango especificado
+ (outRange), reescalando linealmente sus valores desde un rango inicial (inRange o calculado automáticamente).
+  Es útil para normalizar o mejorar el contraste.
+
+2: Ecualizar
+
+get_index(value, hist_acum, nBins)
+Calcula el índice en un histograma dividido en nBins para un valor dado. 
+Asegura que el índice no exceda el tamaño del histograma acumulado.
+
+create_histogram(inImage, nBins=256)
+Genera un histograma con nBins dividiendo los valores de intensidad de la imagen en intervalos
+ y contando la cantidad de píxeles en cada intervalo.
+
+equalizeIntensity(inImage, nBins=256)
+Realiza la ecualización del histograma para mejorar el contraste de la imagen. Usa el histograma acumulado 
+para redistribuir las intensidades de los píxeles, normalizando los valores al rango [0, 1].
+
+3: Filter image 
+
+add_padding(inImage, up, down, left, right, padding_value=0)
+Agrega bordes (padding) a la imagen con un valor especificado 
+(padding_value) para permitir operaciones como convolución sin problemas en los bordes.
+
+padding_img(kernel, centerPixel)
+Calcula cuántos píxeles de relleno se necesitan en cada lado de la imagen basándose 
+en el tamaño del kernel y la posición de su píxel central.
+
+reshapeKernel(kernelArray)
+Convierte un kernel unidimensional en una matriz 2D si es necesario,
+ para asegurarse de que sea válido para operaciones de convolución.
+
+
+convolution(padding_image, kernel, row, col)
+Calcula el resultado de la convolución en una posición específica de la imagen,
+ multiplicando y sumando los valores del kernel con los píxeles correspondientes
+
+filterImage(inImage, kernel)
+Aplica un filtro a la imagen usando un kernel especificado. Ajusta la imagen con padding, 
+realiza la convolución en cada píxel y devuelve la imagen resultante. 
+El kernel que apliques depende si lo usas para homogeneizar o detectar ciertos elementos como bordes
+
+4: Gaussian kernel 1d
+
+La función gaussKernel1D(sigma) genera un kernel gaussiano unidimensional que se utiliza comúnmente para suavizar imágenes o datos.
+
+5: Gaussian kernel 2 d  
+
+-Genera un kernel gaussiano 1D con gaussKernel1D(sigma) para suavizar en una dirección.
+-Aplica la convolución horizontal usando el kernel 1D a la imagen de entrada.
+-Transpone el kernel y lo usa para realizar una convolución vertical sobre el resultado anterior.
+-Devuelve la imagen suavizada.
+
+Este método combina convoluciones separables (1D horizontal y vertical) 
+para simular un filtro gaussiano 2D eficiente, ideal para eliminar ruido preservando bordes suaves.
+
+6 : Median filter 
+
+calculate_median(subMatrix):
+Calcula la mediana de una submatriz.
+
+Convierte la submatriz en un array 1D, la ordena y devuelve el elemento central
+ (o el promedio de los dos centrales si el tamaño es par).
+medianFilter(inImage, filterSize):
+Aplica un filtro de mediana a la imagen:
+
+Añade padding para manejar los bordes de la imagen.
+Para cada píxel, extrae una submatriz del tamaño del filtro (filterSize x filterSize),
+ calcula su mediana con calculate_median, y la asigna como nuevo valor del píxel.
+Devuelve la imagen filtrada.
+Propósito:
+El filtro de mediana es ideal para eliminar ruido impulsivo (salt-and-pepper), ya que reemplaza cada píxel con la mediana de sus vecinos,
+ preservando bordes y detalles mejor que un filtro promedio
+
+ 7: Erode 
+
+Inicialización:
+
+Se crea una imagen de salida del mismo tamaño que la imagen de entrada, inicializada a ceros.
+Se define el centro del elemento estructurante (SE) si no se especifica.
+Cálculo del Padding:
+
+Se calcula el padding necesario para la imagen de entrada basado en el tamaño del SE y su centro.
+Añadir Padding:
+
+Se añade padding a la imagen de entrada para manejar los bordes durante la erosión.
+Erosión:
+
+Para cada píxel de la imagen de entrada, se extrae una submatriz del tamaño del SE.
+Se compara la submatriz con el SE:
+Si todos los elementos de la submatriz coinciden con los del SE donde el SE es 1, se marca el píxel correspondiente en la imagen de salida como 1.
+Si no coinciden, se deja el píxel en 0.
+Resultado:
+
+La imagen resultante tiene los píxeles erosionados, donde las regiones coincidentes con el SE se marcan como 1 y las demás como 0.
+
+8: Dilate 
+
+Complemento de la Imagen: Se calcula el complemento de la imagen de entrada (A^C).
+
+Inverso del Kernel:
+
+Se calcula el inverso del kernel (SE) invirtiéndolo en ambos ejes (espejo).
+Erosión del Complemento:
+
+Se aplica la erosión al complemento de la imagen utilizando el kernel inverso.
+Complemento del Resultado:
+
+Se calcula el complemento del resultado de la erosión para obtener la imagen dilatada final.
+Este proceso utiliza la propiedad de dualidad en morfología matemática, donde la dilatación
+ se puede obtener mediante la erosión del complemento de la imagen con el kernel inverso, seguida de tomar el complemento del resultado.
+
+9 : Apertura 
+Apertura: Suaviza los contornos de los objetos, elimina pequeños objetos y separa objetos conectados.
+
+10: Closing
+
+Cierra pequeños agujeros y conecta objetos cercanos.
+
+11: fill (Rellena la imagen)
+
+Complemento de la Imagen: Se calcula el complemento de la imagen de entrada (A^C).
+
+Inicialización con Semillas:
+
+Se crea una imagen inicial con las semillas, colocando valores de 1 en las posiciones de las semillas.
+Iteración hasta Convergencia:
+
+Se realiza un bucle iterativo donde en cada iteración se calcula la dilatación de la imagen actual con un elemento estructurante (SE)
+ y se intersecta con el complemento de la imagen.
+La operación de dilatación expande las regiones de las semillas.
+La intersección con el complemento de la imagen asegura que la expansión no exceda los límites de las regiones originales.
+Condición de Parada:
+
+El proceso se detiene cuando la imagen resultante de la iteración actual es igual a la de la iteración anterior, indicando que no hay más cambios.
+Resultado Final:
+
+Se devuelve la unión de las regiones llenas con la imagen original, combinando las áreas dilatadas con las áreas originales.
+
+11 :  Gradiente Image 
+
+Selecciona un operador: Según el nombre del operador (Roberts, Prewitt, Sobel, CentralDiff), se escogen los kernels correspondientes.
+Calcula las derivadas: Aplica la convolución de la imagen con los kernels seleccionados para obtener 
+el gradiente en las direcciones x y y (derivadas parciales).
+Devuelve los gradientes: Retorna dos imágenes: el gradiente en x (gx) y en y (gy), que representan
+ la intensidad del cambio de píxeles en esas direcciones.
+
+12: Log  
+
+Suavizado: La imagen de entrada se suaviza utilizando un filtro Gaussiano para reducir el ruido.
+
+Aplicación del Filtro Laplaciano:
+
+Se define un kernel Laplaciano, en este caso: [ \begin{bmatrix} 1 & 1 & 1 \ 1 & -8 & 1 \ 1 & 1 & 1 \end{bmatrix} ]
+Este kernel se aplica a la imagen suavizada mediante una operación de convolución.
+Resultado: La imagen resultante destaca las regiones donde hay cambios bruscos de intensidad, identificando los bordes.
+
+13: EdgeCanny
+
+-Suavizado: La imagen de entrada se suaviza con un filtro Gaussiano para reducir el ruido.
+
+-Cálculo del Gradiente: Se calcula el gradiente de la imagen suavizada utilizando operadores como Sobel para obtener las componentes (G_x) y (G_y).
+
+Magnitud y Dirección del Gradiente:
+
+Magnitud: Se calcula como (\sqrt{G_x^2 + G_y^2}).
+Dirección: Se calcula como (\arctan2(G_y, G_x)).
+-Supresión de No-Máximos: Se eliminan los píxeles que no son máximos locales en la dirección del gradiente, dejando solo los picos que representan los bordes.
+
+Umbralización por Histéresis:
+
+-Umbral Alto: Se marcan los píxeles con una magnitud superior a un umbral alto como bordes fuertes.
+Umbral Bajo: Se marcan los píxeles con una magnitud superior a un umbral bajo como bordes débiles.
+Conectividad: Los bordes débiles conectados a bordes fuertes se conservan, mientras que los demás se suprimen.
