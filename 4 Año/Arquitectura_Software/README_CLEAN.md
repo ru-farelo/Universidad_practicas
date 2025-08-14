@@ -9,7 +9,6 @@
 - **GenServer/Supervisor** - Estado mutable + recovery automático
 - **Distributed Clustering** - Escalabilidad horizontal
 
-
 ## 💡 Proyectos Implementados
 - **Criba de Eratóstenes Distribuida:** Algoritmos concurrentes + worker pools
 - **Micro-Bank:** Transacciones atómicas con GenServer y consistencia de datos
@@ -18,10 +17,10 @@
 
 ## 🔧 Características Técnicas
 ```
-- Actor Model: Millones de procesos concurrentes y ligeros
-- Fault Tolerance: Recovery automático + supervisión jerárquica  
-- Hot Swapping: Actualizaciones en vivo sin downtime
-- Performance: Copy-on-write + GC por proceso
+Actor Model: Millones de procesos lightweight concurrentes
+Fault Tolerance: Recovery automático + supervision jerárquica  
+Hot Swapping: Actualizaciones sin downtime
+Performance: Copy-on-write + GC per-process
 ```
 
 ## 🎯 Valor Profesional
