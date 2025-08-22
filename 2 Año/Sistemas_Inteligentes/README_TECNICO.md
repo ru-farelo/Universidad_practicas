@@ -1,10 +1,10 @@
 # Sistemas Inteligentes - Inteligencia Artificial y Machine Learning
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Implementación de algoritmos y técnicas fundamentales de **Inteligencia Artificial** y **Machine Learning**, abarcando desde métodos de búsqueda clásicos hasta algoritmos de aprendizaje automático avanzados. El proyecto demuestra competencias en resolución de problemas complejos mediante técnicas de IA y análisis de datos.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Algoritmos de búsqueda**: Implementación de técnicas de búsqueda informada y no informada
 - **Sistemas expertos**: Desarrollo de motores de inferencia y bases de conocimiento
@@ -14,7 +14,7 @@ Implementación de algoritmos y técnicas fundamentales de **Inteligencia Artifi
 - **Procesamiento de lenguaje natural**: Análisis y comprensión de texto
 - **Visión artificial**: Procesamiento y reconocimiento de imágenes
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 ### Módulo de Búsqueda y Planificación
 - **Búsqueda ciega**: BFS, DFS, búsqueda de coste uniforme
@@ -34,7 +34,7 @@ Implementación de algoritmos y técnicas fundamentales de **Inteligencia Artifi
 - **Sistemas expertos**: Motor de reglas, explicación de decisiones
 - **Razonamiento bajo incertidumbre**: Redes bayesianas, lógica difusa
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Lenguajes**: Java SE 11+, Python 3.8+
 - **ML Libraries**: Scikit-learn, NumPy, Pandas, Matplotlib
@@ -44,7 +44,7 @@ Implementación de algoritmos y técnicas fundamentales de **Inteligencia Artifi
 - **Testing**: JUnit 5, PyTest, unittest
 - **Datos**: CSV processing, database integration
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -88,7 +88,7 @@ python machine_learning/clasificacion.py
 jupyter notebook notebooks/analisis_datos.ipynb
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Algoritmos de Búsqueda Avanzados
 - **A* optimizado**: Implementación con heurísticas admisibles y consistentes
@@ -114,7 +114,7 @@ jupyter notebook notebooks/analisis_datos.ipynb
 - **Validación cruzada**: Evaluación robusta de modelos
 - **Métricas de evaluación**: Precision, recall, F1-score, ROC-AUC
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Inteligencia Artificial**: Dominio de algoritmos clásicos y modernos de IA
 - **Machine Learning**: Implementación y evaluación de modelos de aprendizaje
@@ -124,7 +124,7 @@ jupyter notebook notebooks/analisis_datos.ipynb
 - **Evaluación de algoritmos**: Análisis de complejidad y rendimiento empírico
 - **Programación científica**: Uso de bibliotecas especializadas y herramientas de investigación
 
-## 🎯 Algoritmos y Técnicas Implementadas
+## Algoritmos y Técnicas Implementadas
 
 ### Técnicas de Búsqueda
 - **Búsqueda ciega**: Exploración sistemática sin información del dominio
@@ -144,7 +144,7 @@ jupyter notebook notebooks/analisis_datos.ipynb
 - **Razonamiento probabilístico**: Redes bayesianas y propagación
 - **Razonamiento difuso**: Lógica fuzzy y sistemas de control
 
-## 🔬 Proyectos de Investigación
+## Proyectos de Investigación
 
 ### Aplicaciones Desarrolladas
 - **Sistema de recomendación**: Filtrado colaborativo y basado en contenido
@@ -158,7 +158,7 @@ jupyter notebook notebooks/analisis_datos.ipynb
 - **Análisis de convergencia**: Estudio de comportamiento de algoritmos iterativos
 - **Evaluación de robustez**: Testing con datos ruidosos y outliers
 
-## 🏆 Logros Técnicos Alcanzados
+## Logros Técnicos Alcanzados
 
 Este proyecto demuestra:
 - **Capacidad de investigación**: Implementación de algoritmos estado del arte
@@ -170,7 +170,7 @@ Este proyecto demuestra:
 
 ---
 
-## 🏛️ Contexto Académico
+##  Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Sistemas Inteligentes (2021-2022)
 
