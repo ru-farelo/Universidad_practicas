@@ -1,9 +1,9 @@
-# ⚡ Arquitectura de Software - Sistemas Distribuidos Escalables con Elixir/OTP
+# Arquitectura de Software - Sistemas Distribuidos Escalables con Elixir/OTP
 
-📌 Desarrollo de sistemas distribuidos tolerantes a fallos con **Elixir/OTP** y el modelo de actores, capaces de escalar a millones de procesos concurrentes con alta disponibilidad y actualización en caliente.  
+Desarrollo de sistemas distribuidos tolerantes a fallos con **Elixir/OTP** y el modelo de actores, capaces de escalar a millones de procesos concurrentes con alta disponibilidad y actualización en caliente.  
 Incluye desde ejercicios de concurrencia avanzada hasta una **plataforma distribuida completa** para reservas deportivas (EasyCourt), aplicando patrones arquitectónicos y supervisión jerárquica.
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 El proyecto **Arquitectura de Software** constituye una implementación completa de **sistemas distribuidos escalables** utilizando el ecosistema **Elixir/OTP**. El desarrollo abarca desde ejercicios fundamentales de programación concurrente hasta la construcción de una plataforma distribuida completa, demostrando competencias avanzadas en arquitecturas robustas, tolerancia a fallos y escalabilidad masiva.
 
 
@@ -13,7 +13,7 @@ El proyecto **Arquitectura de Software** constituye una implementación completa
 - **Implementación con Elixir/OTP** para sistemas críticos y escalables
 - **Aplicación de tácticas arquitectónicas** para requisitos no funcionales
 
-## 🛠️ Tecnologías y Herramientas
+##  Tecnologías y Herramientas
 
 ### Entorno de Desarrollo
 - **Lenguaje Principal:** Elixir (programación funcional con Actor model)
@@ -27,7 +27,7 @@ El proyecto **Arquitectura de Software** constituye una implementación completa
 - **Application:** Gestión de ciclo de vida y coordinación de servicios
 - **Task:** Patrones async/await para concurrencia simple
 
-## 🔧 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Pipeline de Desarrollo
 1. **Ejercicios Fundamentales**
@@ -109,7 +109,7 @@ Arquitectura_Software/
 
 **EasyCourt:** Plataforma completa con arquitectura distribuida, supervisión jerárquica y requisitos no funcionales de producción.
 
-## 💡 Características Destacadas
+## Características Destacadas
 
 ### Implementación Técnica
 - **Actor Model Mastery:** Dominio completo del modelo de actores con paso de mensajes
@@ -129,7 +129,7 @@ Arquitectura_Software/
 - **Real-time Systems:** Procesamiento de alta frecuencia con baja latencia
 - **IoT Platforms:** Gestión masiva de dispositivos concurrentes
 
-## 🎯 Valor Técnico y Profesional
+## Valor Técnico y Profesional
 
 Este proyecto demuestra competencias avanzadas en:
 - **Sistemas Distribuidos:** Arquitecturas resilientes y escalables para entornos de producción
