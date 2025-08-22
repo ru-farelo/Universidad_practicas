@@ -1,10 +1,10 @@
 # Algoritmos - Análisis y Diseño de Algoritmos Avanzados
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Implementación y análisis exhaustivo de **algoritmos fundamentales** en C, abarcando desde optimización de subsecuencias hasta algoritmos de grafos complejos. El proyecto incluye análisis riguroso de complejidad temporal, benchmarking experimental y comparativas de rendimiento entre diferentes enfoques algorítmicos.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Análisis de complejidad**: Estudio empírico y teórico de algoritmos
 - **Algoritmos de optimización**: Subsecuencia máxima con múltiples enfoques
@@ -14,7 +14,7 @@ Implementación y análisis exhaustivo de **algoritmos fundamentales** en C, aba
 - **Benchmarking riguroso**: Medición precisa de tiempos de ejecución
 - **Análisis experimental**: Validación empírica de complejidades teóricas
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 ### Práctica 1 - Optimización de Subsecuencias
 - **Algoritmo O(n²)**: Implementación de fuerza bruta para subsecuencia máxima
@@ -40,7 +40,7 @@ Implementación y análisis exhaustivo de **algoritmos fundamentales** en C, aba
 - **Análisis de complejidad**: O(V²) con implementación eficiente
 - **Aplicaciones prácticas**: Problemas de enrutamiento y navegación
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Lenguaje**: C estándar (C99/C11)
 - **Compilación**: GCC con optimizaciones (-O2, -O3)
@@ -50,7 +50,7 @@ Implementación y análisis exhaustivo de **algoritmos fundamentales** en C, aba
 - **Documentación**: Informes detallados con análisis matemático
 - **Testing**: Casos de prueba exhaustivos y validación algorítmica
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -96,7 +96,7 @@ valgrind --tool=callgrind ./practica3
 gprof practica4 gmon.out > analysis.txt
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Algoritmos de Optimización Dinámica
 - **Subsecuencia máxima O(n²)**: Enfoque de fuerza bruta con análisis exhaustivo
@@ -122,7 +122,7 @@ gprof practica4 gmon.out > analysis.txt
 - **Relajación de aristas**: Técnica fundamental en caminos mínimos
 - **Análisis de conectividad**: Validación de grafos y componentes
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Análisis algorítmico**: Evaluación rigurosa de complejidad temporal y espacial
 - **Programación eficiente**: Optimizaciones a nivel de código y compilador
@@ -132,7 +132,7 @@ gprof practica4 gmon.out > analysis.txt
 - **Optimización de rendimiento**: Técnicas de profiling y mejora continua
 - **Investigación algorítmica**: Comparación sistemática de enfoques
 
-## 🎯 Algoritmos y Complejidades Implementadas
+## Algoritmos y Complejidades Implementadas
 
 ### Análisis de Complejidad
 - **Subsecuencia máxima**: O(n²) → O(n) mediante programación dinámica
@@ -153,7 +153,7 @@ gprof practica4 gmon.out > analysis.txt
 - **Eliminación de recursión**: Conversión a versiones iterativas
 - **Análisis de casos**: Optimización específica para diferentes inputs
 
-## 🔬 Metodología Experimental
+## Metodología Experimental
 
 ### Framework de Benchmarking
 - **Medición temporal precisa**: Microsegundos con gettimeofday()
@@ -167,7 +167,7 @@ gprof practica4 gmon.out > analysis.txt
 - **Cotas teóricas vs empíricas**: Validación de análisis matemático
 - **Factores constantes**: Análisis de overhead real en implementaciones
 
-## 🏆 Logros Técnicos Alcanzados
+## Logros Técnicos Alcanzados
 
 Este proyecto demuestra:
 - **Rigor algorítmico**: Implementación correcta de algoritmos complejos
@@ -179,7 +179,7 @@ Este proyecto demuestra:
 
 ---
 
-## 🏛️ Contexto Académico
+## Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Algoritmos (2022-2023)
 
