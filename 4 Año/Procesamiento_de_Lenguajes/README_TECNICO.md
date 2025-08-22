@@ -1,6 +1,6 @@
-# 🌐 Procesamiento de Lenguajes - Validador de Protocolos HTTP
+# Procesamiento de Lenguajes - Validador de Protocolos HTTP
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 El proyecto **Procesamiento de Lenguajes** constituye una implementación completa de un **analizador léxico y sintáctico especializado en la validación de protocolos HTTP**. El desarrollo se centra en la construcción desde cero de un compilador que procesa y valida la sintaxis de peticiones y respuestas HTTP, implementando las fases fundamentales de análisis léxico, sintáctico y semántico.
 
@@ -10,7 +10,7 @@ El proyecto **Procesamiento de Lenguajes** constituye una implementación comple
 - **Procesamiento robusto** de diferentes métodos, versiones y formatos HTTP
 - **Sistema de testing automatizado** con casos de prueba comprehensivos
 
-## 🛠️ Tecnologías y Herramientas
+## Tecnologías y Herramientas
 
 ### Entorno de Desarrollo
 - **Lenguajes:** C (núcleo), Flex (análisis léxico), Bison (análisis sintáctico)
@@ -23,7 +23,7 @@ El proyecto **Procesamiento de Lenguajes** constituye una implementación comple
 - **Expresiones Regulares:** Definición precisa de tokens y patrones léxicos
 - **Gramáticas Libres de Contexto:** Especificación formal de la sintaxis HTTP
 
-## 🔧 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Pipeline de Compilación
 1. **Análisis Léxico (Flex)**
@@ -96,7 +96,7 @@ PL_Final/
 - Manejo de errores con mensajes descriptivos
 - Validación de coherencia semántica en tiempo de compilación
 
-## 💡 Características Destacadas
+## Características Destacadas
 
 ### Implementación Técnica
 - **Compilador Completo:** Desarrollo desde especificaciones formales hasta código ejecutable
@@ -110,7 +110,7 @@ PL_Final/
 - **Herramientas DevOps:** Validación automática de logs y trazas HTTP
 - **Educación:** Herramienta didáctica para enseñanza de protocolos de red
 
-## 🎯 Valor Técnico y Profesional
+## Valor Técnico y Profesional
 
 Este proyecto demuestra competencias avanzadas en:
 - **Teoría de Compiladores:** Dominio completo del pipeline de compilación (léxico → sintáctico → semántico)
