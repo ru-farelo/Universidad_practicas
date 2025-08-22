@@ -3,14 +3,14 @@
 
 Este repositorio contiene el desarrollo completo de un **sistema de gestión de entradas de fútbol** implementado como servicio web distribuido, demostrando competencias avanzadas en arquitectura de software, servicios web y desarrollo empresarial.
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de Aprendizaje
 
 - **Arquitectura de Servicios Web**: Implementación de sistemas distribuidos con protocolo REST y Apache Thrift
 - **Desarrollo Empresarial**: Aplicación de patrones enterprise con Maven, Spring y tecnologías Java EE
 - **Persistencia de Datos**: Gestión de bases de datos relacionales con MySQL y SQL
 - **Protocolos de Comunicación**: Implementación dual REST/Thrift para máxima interoperabilidad
 
-## ⚡ Sistema Desarrollado: Gestión de Entradas de Fútbol
+## Sistema Desarrollado: Gestión de Entradas de Fútbol
 
 ### Arquitectura del Sistema
 - **Arquitectura Multicapa**: Separación clara entre modelo, servicio y cliente
@@ -20,24 +20,24 @@ Este repositorio contiene el desarrollo completo de un **sistema de gestión de 
 
 ### Funcionalidades Principales
 
-#### 🎫 Gestión de Partidos
+#### Gestión de Partidos
 - **Creación de partidos**: Alta de eventos deportivos con validación de datos
 - **Búsqueda avanzada**: Filtrado por fechas y disponibilidad de entradas
 - **Gestión de inventario**: Control en tiempo real de entradas disponibles
 - **Eliminación controlada**: Borrado solo de partidos ya celebrados
 
-#### 💳 Sistema de Ventas
+#### Sistema de Ventas
 - **Compra de entradas**: Procesamiento de transacciones con validación de tarjetas
 - **Gestión de usuarios**: Historial completo de compras por usuario
 - **Control de disponibilidad**: Verificación de stock en tiempo real
 - **Marcado de entradas**: Sistema de validación para entrada al estadio
 
-#### 🔍 Consultas Especializadas
+#### Consultas Especializadas
 - **Búsqueda por fechas**: Filtrado de partidos en rangos temporales
 - **Partidos con pocas entradas**: Identificación de eventos con baja demanda
 - **Historial de compras**: Consulta completa de transacciones por usuario
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 ### Backend y Servicios
 | Tecnología | Propósito | Versión |
@@ -62,7 +62,7 @@ Este repositorio contiene el desarrollo completo de un **sistema de gestión de 
 | **Apache Tomcat** | Servidor de producción | Compatible |
 | **WS-Util** | Utilidades web services | 3.7.0 |
 
-## 📊 Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 ```
 isd-055-master/
@@ -87,7 +87,7 @@ isd-055-master/
 └── pom.xml                        # Configuración Maven principal
 ```
 
-## 🚀 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 ### Desarrollo de Sistemas Distribuidos
 - **Servicios Web REST**: Implementación completa con operaciones CRUD
@@ -113,7 +113,7 @@ isd-055-master/
 - **Testing**: Configuración de entornos de prueba con bases de datos dedicadas
 - **Documentación**: Código autodocumentado y estructura clara
 
-## 💼 Casos de Uso Implementados
+## Casos de Uso Implementados
 
 ### 1. Gestión de Eventos Deportivos
 ```bash
@@ -142,7 +142,7 @@ PartidoServiceClient -collect 1 "4916119711304546"
 PartidoServiceClient -removeMatch 1
 ```
 
-## 📈 Características Avanzadas
+## Características Avanzadas
 
 - **Alta Disponibilidad**: Arquitectura preparada para balanceadores de carga
 - **Escalabilidad**: Diseño que permite escalado horizontal
@@ -150,7 +150,7 @@ PartidoServiceClient -removeMatch 1
 - **Robustez**: Manejo integral de errores y validaciones exhaustivas
 - **Performance**: Optimización de consultas y gestión eficiente de recursos
 
-## 🎖️ Logros Destacados
+## 🎖Logros Destacados
 
 - **Arquitectura Empresarial**: Implementación de patrones enterprise estándar de la industria
 - **Dual Protocol**: Capacidad única de servir tanto REST como Thrift desde la misma lógica de negocio
