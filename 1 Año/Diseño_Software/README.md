@@ -3,7 +3,7 @@
  **Arquitectura modular Java** con TDD, design patterns y testing automatizado para sistemas empresariales  
 **Aplicaciones:** Backend enterprise, sistemas modulares, arquitectura software, desarrollo Java avanzado
 
-## �️ Stack Tecnológico
+## Stack Tecnológico
 - **Java SE 11+** - Programming language
 - **JUnit 5** - Testing framework y TDD
 - **UML Modeling** - Arquitectura y diseño de sistemas
