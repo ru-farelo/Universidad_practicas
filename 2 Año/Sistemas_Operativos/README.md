@@ -23,7 +23,9 @@ Proyecto académico de la UDC orientado a demostrar dominio en **programación d
 - Diseño modular y depuración avanzada (Valgrind, GDB)  
 - Desarrollo de **software de sistemas robusto**  
 
-## 📂 Estructura del Repo  
+## 📂 Estructura del Repo
+
+```plaintext
 ShellSO/                         # Proyecto principal
 ├── src/                         # Código fuente
 │   ├── main.c                   # Núcleo del shell (bucle principal)
@@ -50,9 +52,11 @@ ShellSO/                         # Proyecto principal
 └── .gitignore                   # Ignorar binarios, temporales, etc.
 
 
+
 ## 🔗 Documentación Técnica  
 Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.md](README_TECNICO.md).  
 
 ## 🔗 Documentación Técnica  
 Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.md](README_TECNICO.md).  
+
 
