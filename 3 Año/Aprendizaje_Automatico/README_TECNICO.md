@@ -3,14 +3,14 @@
 
 Este repositorio contiene el desarrollo progresivo de **seis prácticas incrementales** y un **proyecto final integrador** en la asignatura de Aprendizaje Automático, demostrando competencias avanzadas en machine learning, deep learning y procesamiento de imágenes médicas.
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de Aprendizaje
 
 - **Algoritmos de Machine Learning**: Implementación desde cero de algoritmos fundamentales de ML
 - **Deep Learning**: Desarrollo de redes neuronales convolucionales con Julia y Flux.jl
 - **Visión por Computador**: Procesamiento y análisis de imágenes médicas para diagnóstico
 - **Optimización**: Técnicas avanzadas de regularización, validación cruzada y selección de modelos
 
-## 📚 Prácticas Incrementales Desarrolladas
+## Prácticas Incrementales Desarrolladas
 
 ### P1: Fundamentos y Preprocesamiento de Datos
 **Manipulación de datasets y técnicas de normalización**
@@ -76,7 +76,7 @@ trainClassANN(topology, dataset; maxEpochs, learningRate)
 @sk_import neighbors: KNeighborsClassifier
 ```
 
-## 🏥 Proyecto Final: Diagnóstico de Melanoma con Deep Learning
+## Proyecto Final: Diagnóstico de Melanoma con Deep Learning
 
 ### Sistema Completo de Clasificación de Lesiones Cutáneas
 
@@ -159,7 +159,7 @@ loss(model,x,y) = crossentropy(model(x),y) +
 - **Normalización**: Valores en rango [0,1]
 - **Segmentación**: Extracción de ROI con bounding boxes
 
-## 🛠️ Stack Tecnológico Completo
+## Stack Tecnológico Completo
 
 ### Machine Learning y Deep Learning
 | Tecnología | Propósito | Características |
@@ -183,7 +183,7 @@ loss(model,x,y) = crossentropy(model(x),y) +
 | **Statistics.jl** | Análisis estadístico | Métricas de evaluación |
 | **Random.jl** | Generación aleatoria | Reproducibilidad |
 
-## 📊 Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 ```
 Aprendizaje_Automatico/
@@ -210,7 +210,7 @@ Aprendizaje_Automatico/
         └── atypical_nevus/
 ```
 
-## 🚀 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 ### Machine Learning Avanzado
 - **Algoritmos Fundamentales**: Implementación desde cero de SVM, Decision Trees, KNN, ANNs
@@ -236,7 +236,7 @@ Aprendizaje_Automatico/
 - **Análisis Estadístico**: Validación robusta de resultados
 - **Visualización Científica**: Gráficos explicativos y métricas
 
-## 💼 Casos de Uso Implementados
+## Casos de Uso Implementados
 
 ### 1. Clasificación Tradicional con Feature Engineering
 ```julia
@@ -260,7 +260,7 @@ bar(1:length(arquitecturas), [f1_test f1_training],
     title="Comparación F1 Score en Test vs Training")
 ```
 
-## 📈 Características Avanzadas
+## Características Avanzadas
 
 ### Sistema de Evaluación Robusto
 - **Múltiples Métricas**: F1-Score, Accuracy, Matriz de Confusión
@@ -280,7 +280,7 @@ bar(1:length(arquitecturas), [f1_test f1_training],
 - **Multi-resolución**: Procesamiento a diferentes escalas
 - **Robustez**: Manejo de variabilidad en imágenes médicas reales
 
-## 🎖️ Logros Destacados
+##  Logros Destacados
 
 - **Sistema Completo de Diagnóstico**: Pipeline end-to-end desde imagen raw hasta clasificación
 - **Implementación Nativa**: Algoritmos ML desarrollados desde cero sin librerías externas
