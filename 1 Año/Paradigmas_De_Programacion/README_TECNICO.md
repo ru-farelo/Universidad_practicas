@@ -1,10 +1,10 @@
 # Paradigmas de Programación - Programación Funcional en OCaml
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Conjunto de implementaciones avanzadas en **programación funcional** utilizando OCaml, cubriendo desde estructuras de datos fundamentales hasta algoritmos complejos de inteligencia artificial. El proyecto demuestra el dominio de múltiples paradigmas de programación y técnicas algorítmicas avanzadas.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Programación funcional pura**: Implementaciones sin efectos secundarios
 - **Algoritmos de búsqueda**: Backtracking y búsqueda con poda
@@ -14,7 +14,7 @@ Conjunto de implementaciones avanzadas en **programación funcional** utilizando
 - **Análisis de complejidad**: Comparación de eficiencia algoritmica
 - **Recursión avanzada**: Funciones recursivas terminales y no terminales
 
-## 🏗️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 ### Módulos Principales
 
@@ -32,7 +32,7 @@ Conjunto de implementaciones avanzadas en **programación funcional** utilizando
 - **Permutaciones (`permutations.txt`)**: Generación exhaustiva de permutaciones
 - **Shortest Path (`shortest.ml`)**: Algoritmos de camino más corto
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 - **Lenguaje**: OCaml (Objective Caml)
 - **Paradigma**: Programación funcional, Programación lógica
@@ -42,7 +42,7 @@ Conjunto de implementaciones avanzadas en **programación funcional** utilizando
 - **Herramientas**: OCaml REPL, Compilador nativo
 - **Testing**: Análisis de complejidad temporal y espacial
 
-## ⚙️ Configuración y Ejecución
+## Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -65,7 +65,7 @@ ocamlopt -o programa archivo.ml
 ocaml -i archivo.ml
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Algoritmos de Ordenación Avanzados
 - **QuickSort Optimizado**: Implementación recursiva terminal para evitar stack overflow
@@ -87,7 +87,7 @@ ocaml -i archivo.ml
 - **Listas Personalizadas**: Implementaciones optimizadas de operaciones comunes
 - **Grafos**: Representación funcional para algoritmos de recorrido
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Programación funcional**: Dominio completo del paradigma funcional
 - **Análisis algorítmico**: Evaluación de complejidad temporal y espacial
@@ -97,7 +97,7 @@ ocaml -i archivo.ml
 - **Programación avanzada**: Pattern matching, tipos algebraicos, funciones de orden superior
 - **Testing y benchmarking**: Medición y comparación de rendimiento
 
-## 🎯 Algoritmos y Técnicas Implementadas
+## Algoritmos y Técnicas Implementadas
 
 ### Técnicas de Programación
 - **Recursión Terminal**: Optimización para grandes volúmenes de datos
@@ -117,7 +117,7 @@ ocaml -i archivo.ml
 - **Benchmarking**: Medición empírica de rendimiento
 - **Escalabilidad**: Testing con datasets de diferentes tamaños
 
-## 🔬 Proyectos de Investigación
+## Proyectos de Investigación
 
 Este repositorio incluye implementaciones de problemas complejos que demuestran:
 - **Capacidad de abstracción**: Modelado matemático en código funcional
@@ -127,7 +127,7 @@ Este repositorio incluye implementaciones de problemas complejos que demuestran:
 
 ---
 
-## 🏛️ Contexto Académico
+## Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Paradigmas de Programación (2020-2021)
 
