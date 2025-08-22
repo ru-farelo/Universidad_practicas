@@ -3,14 +3,14 @@
 
 Este repositorio contiene el desarrollo de **tres proyectos principales** en la asignatura de Interfaz Persona-Máquina, demostrando competencias en diseño de experiencia de usuario, desarrollo de interfaces modernas y adaptación multiplataforma.
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de Aprendizaje
 
 - **Diseño centrado en el usuario**: Aplicación de principios de usabilidad y accesibilidad
 - **Desarrollo multiplataforma**: Implementación en diferentes tecnologías según requisitos del proyecto
 - **Arquitecturas modernas**: Utilización de patrones MVP y gestión de estado
 - **APIs y servicios web**: Integración con servicios externos para funcionalidades dinámicas
 
-## 📱 Proyectos Desarrollados
+## Proyectos Desarrollados
 
 ### 1. Aplicación de Gestión de Cócteles (Python + GTK)
 - **Framework**: Python con interfaz gráfica GTK
@@ -60,7 +60,7 @@ Este repositorio contiene el desarrollo de **tres proyectos principales** en la 
 - LocalStorage para persistencia
 - Accesibilidad web (WCAG)
 
-## 🛠️ Competencias Técnicas Demostradas
+##  Competencias Técnicas Demostradas
 
 ### Desarrollo Frontend
 - **Frameworks**: Flutter, GTK (Python), HTML5/CSS3/JavaScript
@@ -80,7 +80,7 @@ Este repositorio contiene el desarrollo de **tres proyectos principales** en la 
 - **Modularidad**: Código organizado y mantenible
 - **Manejo de errores**: Validación robusta y feedback apropiado
 
-## 📊 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 3 Año/Interfaz_Persona_Máquina/
@@ -98,7 +98,7 @@ Este repositorio contiene el desarrollo de **tres proyectos principales** en la 
     └── src/css/                    # Estilos responsivos
 ```
 
-## 🚀 Tecnologías y Herramientas
+## Tecnologías y Herramientas
 
 | Categoría | Tecnologías |
 |-----------|-------------|
@@ -109,7 +109,7 @@ Este repositorio contiene el desarrollo de **tres proyectos principales** en la 
 | **Persistencia** | LocalStorage, SharedPreferences |
 | **UI/UX** | Material Design, Responsive Design, ARIA |
 
-## 💡 Logros Destacados
+## Logros Destacados
 
 - **Desarrollo multiplataforma**: Experiencia en 3 stacks tecnológicos diferentes
 - **Integración de APIs**: Implementación robusta de servicios web externos
