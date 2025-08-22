@@ -50,13 +50,12 @@ ShellSO/                         # Proyecto principal
 ├── CMakeLists.txt               # Opción alternativa con CMake
 ├── README.md                    # Versión corta (para recruiters)
 └── .gitignore                   # Ignorar binarios, temporales, etc.
-
+```
 
 
 ## 🔗 Documentación Técnica  
 Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.md](README_TECNICO.md).  
 
-## 🔗 Documentación Técnica  
-Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.md](README_TECNICO.md).  
+
 
 
