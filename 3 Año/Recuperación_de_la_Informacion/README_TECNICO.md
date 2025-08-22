@@ -1,19 +1,19 @@
 # Recuperación de la Información (RI)
 
-📌 Desarrollo de motor de búsqueda web y servidor HTTP multihilo en Java, con Apache Lucene y crawling masivo.
+ Desarrollo de motor de búsqueda web y servidor HTTP multihilo en Java, con Apache Lucene y crawling masivo.
 
 ## Sistemas de Indexación y Búsqueda con Apache Lucene
 
 Este repositorio contiene el desarrollo de **dos proyectos principales** en la asignatura de Recuperación de la Información, demostrando competencias avanzadas en sistemas de búsqueda, indexación de documentos y procesamiento de contenido web.
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de Aprendizaje
 
 - **Motores de Búsqueda**: Implementación de sistemas de indexación y recuperación con Apache Lucene
 - **Procesamiento Web**: Crawling, parsing y almacenamiento de contenido HTML
 - **Análisis de Texto**: Aplicación de algoritmos TF-IDF y vectores de términos
 - **Programación de Redes**: Desarrollo de servidores web y protocolos HTTP
 
-## 🔍 Proyectos Desarrollados
+## Proyectos Desarrollados
 
 ### 1. Web Indexer - Motor de Búsqueda con Lucene
 **Sistema completo de indexación web multihilo**
@@ -71,7 +71,7 @@ FieldType titleType/bodyType con storeTermVectors configurable
 - **Static File Serving**: Servicio de archivos estáticos con múltiples tipos
 - **Configuration Driven**: Configuración externa mediante properties
 
-## 🛠️ Stack Tecnológico Completo
+##  Stack Tecnológico Completo
 
 ### Motor de Búsqueda y Análisis
 | Tecnología | Propósito | Versión |
@@ -95,7 +95,7 @@ FieldType titleType/bodyType con storeTermVectors configurable
 | **Java NIO** | I/O no bloqueante |
 | **Properties** | Configuración externa |
 
-## 📊 Arquitectura de Proyectos
+## Arquitectura de Proyectos
 
 ```
 Recuperación_de_la_Informacion/
@@ -115,7 +115,7 @@ Recuperación_de_la_Informacion/
         └── server.properties                # Configuración del servidor
 ```
 
-## 🚀 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 ### Sistemas de Información y Búsqueda
 - **Apache Lucene**: Dominio completo del framework de búsqueda más utilizado en la industria
@@ -135,7 +135,7 @@ Recuperación_de_la_Informacion/
 - **Configuración Externa**: Sistemas configurables y mantenibles
 - **Manejo de Errores**: Implementación robusta con recovery automático
 
-## 💼 Casos de Uso Implementados
+## Casos de Uso Implementados
 
 ### 1. Indexación Web Masiva
 ```bash
@@ -162,7 +162,7 @@ java WebServer  # Lee configuración de server.properties
 # Soporte para archivos estáticos, error handling y caching HTTP
 ```
 
-## 📈 Características Avanzadas
+## Características Avanzadas
 
 ### Sistema de Indexación
 - **Escalabilidad**: Procesamiento multihilo para grandes volúmenes de datos
@@ -182,7 +182,7 @@ java WebServer  # Lee configuración de server.properties
 - **Caching**: Soporte para conditional requests y ETag
 - **Configurabilidad**: Adaptable a diferentes entornos de despliegue
 
-## 🎖️ Logros Destacados
+## 🎖Logros Destacados
 
 - **Motor de Búsqueda Completo**: Implementación desde cero de sistema de indexación y recuperación
 - **Algoritmos de RI**: Dominio de técnicas fundamentales de recuperación de información
