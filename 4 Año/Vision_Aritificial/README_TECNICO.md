@@ -1,6 +1,6 @@
-# 📸 Visión Artificial - Sistema de Reconocimiento de Señales de Tráfico
+# Visión Artificial - Sistema de Reconocimiento de Señales de Tráfico
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 El proyecto **Visión Artificial** constituye una implementación completa de un sistema de visión por computador especializado en la **detección y clasificación automática de señales de tráfico**. El desarrollo se centra en la implementación desde cero de algoritmos fundamentales de procesamiento de imágenes y computer vision, sin depender de librerías preconstruidas para los componentes core del sistema.
 
@@ -10,7 +10,7 @@ El proyecto **Visión Artificial** constituye una implementación completa de un
 - **Optimización para tiempo real** con robustez ante condiciones variables de iluminación
 - **Validación exhaustiva** del sistema con múltiples criterios de clasificación
 
-## 🛠️ Tecnologías y Herramientas
+##  Tecnologías y Herramientas
 
 ### Entorno de Desarrollo
 - **Lenguaje Principal:** Python 3.x
@@ -22,7 +22,7 @@ El proyecto **Visión Artificial** constituye una implementación completa de un
 - **Visión por Computador:** Detección de contornos, análisis geométrico, clasificación por características
 - **Algoritmos Propios:** Implementación desde cero de detectores de formas y clasificadores
 
-## 🔧 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Pipeline de Procesamiento
 1. **Captura y Preprocesamiento**
@@ -51,7 +51,7 @@ El proyecto **Visión Artificial** constituye una implementación completa de un
 - **Escalabilidad:** Arquitectura modular para extensión de categorías
 - **Robustez:** Tolerancia a condiciones de iluminación variable
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Vision_Artificial/
@@ -80,7 +80,7 @@ Vision_Artificial/
 
 **P2 - Sistema Completo:** Desarrollo del pipeline de reconocimiento final con clasificación por transformada de Hough (señales circulares) y aproximación poligonal (resto de formas), incluyendo filtros de máscaras y validación integral.
 
-## 💡 Características Destacadas
+## Características Destacadas
 
 ### Implementación Técnica
 - **Algoritmos Propios:** Desarrollo desde cero sin dependencias de librerías especializadas
@@ -94,7 +94,7 @@ Vision_Artificial/
 - **Smart Cities:** Monitorización inteligente de infraestructura vial
 - **Inspección Industrial:** Control de calidad mediante visión artificial
 
-## 🎯 Valor Técnico y Profesional
+## Valor Técnico y Profesional
 
 Este proyecto demuestra competencias avanzadas en:
 - **Visión por Computador:** Dominio de técnicas fundamentales y algoritmos especializados
