@@ -1,10 +1,10 @@
 # Teoría de la Computación - Autómatas y Lenguajes Formales
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Implementación completa de **algoritmos fundamentales de teoría de la computación** en OCaml, abarcando desde estructuras de datos funcionales hasta autómatas finitos y gramáticas libres de contexto. El proyecto demuestra un dominio profundo de los fundamentos matemáticos de la informática y la teoría de lenguajes formales.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Estructuras de datos funcionales**: Conjuntos, árboles binarios y listas inmutables
 - **Autómatas finitos**: Deterministas (AFD) y no deterministas (AFNE)
@@ -14,7 +14,7 @@ Implementación completa de **algoritmos fundamentales de teoría de la computac
 - **Recorrido de árboles**: Algoritmos in-orden, pre-orden, post-orden y anchura
 - **Equivalencias**: Determinación de equivalencia entre autómatas
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 ### Práctica 0 - Fundamentos Funcionales
 - **Funciones de orden superior**: mapdoble, primero_que_cumple, existe
@@ -34,7 +34,7 @@ Implementación completa de **algoritmos fundamentales de teoría de la computac
 - **Análisis sintáctico**: Reconocimiento de cadenas en lenguajes formales
 - **Manipulación de gramáticas**: Operaciones sobre reglas de producción
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 - **Lenguaje**: OCaml (Objective Caml)
 - **Paradigma**: Programación funcional pura
@@ -44,7 +44,7 @@ Implementación completa de **algoritmos fundamentales de teoría de la computac
 - **Testing**: Casos de prueba exhaustivos para cada algoritmo
 - **Documentación**: Explicaciones detalladas de cada implementación
 
-## ⚙️ Configuración y Ejecución
+## Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -93,7 +93,7 @@ es_afne af_example;;
 cyk "ab" gramatica_ejemplo;;
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Estructuras de Datos Funcionales Avanzadas
 - **Conjuntos inmutables**: Implementación completa con operaciones matemáticas
@@ -119,7 +119,7 @@ cyk "ab" gramatica_ejemplo;;
 - **existe**: Verificación existencial en estructuras de datos
 - **filter/map avanzados**: Transformaciones funcionales complejas
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Teoría de la computación**: Dominio profundo de autómatas y lenguajes formales
 - **Programación funcional**: Implementación de algoritmos sin efectos secundarios
@@ -129,7 +129,7 @@ cyk "ab" gramatica_ejemplo;;
 - **Abstracción matemática**: Modelado formal de problemas computacionales
 - **Optimización funcional**: Técnicas de eficiencia en programación declarativa
 
-## 🎯 Algoritmos y Técnicas Implementadas
+## Algoritmos y Técnicas Implementadas
 
 ### Teoría de Autómatas
 - **Determinización**: Conversión de AFNE a AFD mediante construcción de subconjuntos
@@ -149,7 +149,7 @@ cyk "ab" gramatica_ejemplo;;
 - **Inmutabilidad**: Estructuras de datos sin efectos secundarios
 - **Composición funcional**: Combinación elegante de transformaciones
 
-## 🔬 Análisis Teórico y Complejidad
+## Análisis Teórico y Complejidad
 
 ### Complejidad Algorítmica
 - **CYK**: O(n³|G|) para gramáticas de tamaño |G| y cadenas de longitud n
@@ -163,7 +163,7 @@ cyk "ab" gramatica_ejemplo;;
 - **Terminación**: Garantía de finalización en todos los algoritmos
 - **Decidibilidad**: Análisis de problemas computables vs. no computables
 
-## 🏆 Logros Académicos Alcanzados
+## Logros Académicos Alcanzados
 
 Este proyecto demuestra:
 - **Dominio teórico**: Comprensión profunda de fundamentos computacionales
@@ -175,7 +175,7 @@ Este proyecto demuestra:
 
 ---
 
-## 🏛️ Contexto Académico
+##  Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Teoría de la Computación (2021-2022)
 
