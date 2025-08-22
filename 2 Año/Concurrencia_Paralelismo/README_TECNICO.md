@@ -1,12 +1,12 @@
 # Concurrencia y Paralelismo - Sistemas Distribuidos en C
 
-**📌 Resumen:** Proyecto académico avanzado que demuestra competencias en programación concurrente, paralela y distribuida usando C/C++ con pthreads y MPI. Incluye implementaciones desde sincronización básica hasta arquitecturas distribuidas de alto rendimiento, optimizadas para entornos multiprocesador.
+**Resumen:** Proyecto académico avanzado que demuestra competencias en programación concurrente, paralela y distribuida usando C/C++ con pthreads y MPI. Incluye implementaciones desde sincronización básica hasta arquitecturas distribuidas de alto rendimiento, optimizadas para entornos multiprocesador.
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Conjunto de implementaciones avanzadas en **programación concurrente y paralela** utilizando C/C++ y tecnologías como **pthreads** y **MPI**. El proyecto abarca desde sincronización básica con mutex hasta sistemas distribuidos complejos, demostrando competencias en programación de sistemas de alto rendimiento.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Programación multihilo**: Implementaciones con pthreads y sincronización avanzada
 - **Sistemas distribuidos**: Comunicación inter-procesos con MPI (Message Passing Interface)
@@ -16,7 +16,7 @@ Conjunto de implementaciones avanzadas en **programación concurrente y paralela
 - **Gestión de memoria**: Manejo eficiente de recursos en entornos multihilo
 - **Sincronización robusta**: Mutex, semáforos y variables de condición
 
-## 🏗️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 
 ### Práctica 1 - Concurrencia con Pthreads
 - **`arrayEj1.c`**: Acceso concurrente a arrays con mutex básicos
@@ -37,7 +37,7 @@ Conjunto de implementaciones avanzadas en **programación concurrente y paralela
 - **`ejercicio22.c`**: Patrones avanzados de comunicación MPI
 - **`cuentaletras.c`**: Procesamiento paralelo de cadenas bioinformáticas
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Lenguajes**: C/C++ (estándares C11/C++17)
 - **Concurrencia**: POSIX Threads (pthreads), Mutex, Semáforos
@@ -47,7 +47,7 @@ Conjunto de implementaciones avanzadas en **programación concurrente y paralela
 - **Sistemas**: Linux/Unix, sistemas multiprocesador
 - **Debugging**: GDB, ThreadSanitizer, Helgrind
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -76,7 +76,7 @@ make
 mpirun -np 4 ./ejercicio1 1000000 A
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Sincronización Avanzada con Pthreads
 - **Mutex granular**: Optimización de locks por secciones críticas
@@ -101,7 +101,7 @@ mpirun -np 4 ./ejercicio1 1000000 A
 - **Buffer compartido**: Gestión de memoria para productores múltiples
 - **Gestión de estados**: Control de flujo y señalización entre threads
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Programación de sistemas**: Desarrollo en C/C++ para sistemas de alto rendimiento
 - **Concurrencia avanzada**: Diseño e implementación de algoritmos thread-safe
@@ -111,7 +111,7 @@ mpirun -np 4 ./ejercicio1 1000000 A
 - **Arquitectura de software**: Diseño de sistemas escalables y robustos
 - **Matemáticas aplicadas**: Análisis de complejidad paralela y teoría de colas
 
-## 🎯 Algoritmos y Patrones Implementados
+## Algoritmos y Patrones Implementados
 
 ### Patrones de Concurrencia
 - **Producer-Consumer**: Pipeline de procesamiento con múltiples etapas
@@ -131,7 +131,7 @@ mpirun -np 4 ./ejercicio1 1000000 A
 - **Pipeline paralelo**: Procesamiento en cadena optimizado
 - **Load Balancing**: Distribución dinámica de carga de trabajo
 
-## 🔬 Análisis de Rendimiento
+## Análisis de Rendimiento
 
 ### Métricas Implementadas
 - **Speedup**: Análisis de aceleración con múltiples cores
@@ -147,7 +147,7 @@ mpirun -np 4 ./ejercicio1 1000000 A
 
 ---
 
-## 🏛️ Contexto Académico
+##  Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Concurrencia y Paralelismo (2021-2022)
 
