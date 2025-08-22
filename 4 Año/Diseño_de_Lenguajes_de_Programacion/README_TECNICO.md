@@ -1,6 +1,6 @@
-# 🚀 Diseño de Lenguajes de Programación - Intérprete Lambda Cálculo Extendido
+# Diseño de Lenguajes de Programación - Intérprete Lambda Cálculo Extendido
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 El proyecto **Diseño de Lenguajes de Programación** constituye una implementación completa de un **intérprete funcional para lambda cálculo extendido** con sistemas de tipos avanzados. El desarrollo abarca desde los fundamentos teóricos del lambda cálculo hasta la implementación práctica de un intérprete robusto con extensiones modernas como subtipado estructural, tipos de datos algebraicos y recursión tipada.
 
@@ -10,7 +10,7 @@ El proyecto **Diseño de Lenguajes de Programación** constituye una implementac
 - **Desarrollo de extensiones modernas** (registros, variantes, listas, recursión)
 - **Aplicación práctica** de teoría de lenguajes de programación y compiladores
 
-## 🛠️ Tecnologías y Herramientas
+##  Tecnologías y Herramientas
 
 ### Entorno de Desarrollo
 - **Lenguaje Principal:** OCaml (programación funcional con type safety)
@@ -24,7 +24,7 @@ El proyecto **Diseño de Lenguajes de Programación** constituye una implementac
 - **Semántica Operacional:** Call-by-value, substitución capture-avoiding
 - **Algebraic Data Types:** Modelado formal de sintaxis y tipos
 
-## 🔧 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Pipeline de Interpretación
 1. **Análisis Léxico (OCamlLex)**
@@ -98,7 +98,7 @@ DLP_OFICIAL/
 
 **Pipeline de Compilación:** Integración completa Flex → Bison → Type Checker → Evaluador con manejo robusto de errores.
 
-## 💡 Características Destacadas
+## Características Destacadas
 
 ### Implementación Técnica
 - **Lambda Cálculo Puro:** Fundamentos teóricos sólidos con extensiones prácticas
@@ -118,7 +118,7 @@ DLP_OFICIAL/
 - **Herramientas de Análisis:** Verificación formal de programas funcionales
 - **Educación:** Plataforma didáctica para enseñanza de teoría de lenguajes
 
-## 🎯 Valor Técnico y Profesional
+## Valor Técnico y Profesional
 
 Este proyecto demuestra competencias avanzadas en:
 - **Teoría de Lenguajes:** Dominio completo de lambda cálculo y sistemas de tipos formales
