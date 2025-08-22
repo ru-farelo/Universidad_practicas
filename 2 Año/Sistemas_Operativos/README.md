@@ -24,12 +24,30 @@ Proyecto académico de la UDC orientado a demostrar dominio en **programación d
 - Desarrollo de **software de sistemas robusto**  
 
 ## 📂 Estructura del Repo  
-ShellSO/
-├── main.c # Núcleo del shell
-├── commands.h # Definiciones de comandos
-├── list.c/list.h # Estructuras de datos dinámicas
-├── Makefile # Compilación tradicional
-└── docs/ # Documentación y ejemplos
+ShellSO/                         # Proyecto principal
+├── src/                         # Código fuente
+│   ├── main.c                   # Núcleo del shell (bucle principal)
+│   ├── commands.h               # Definiciones de comandos
+│   ├── commands.c               # Implementación de comandos
+│   ├── list.h                   # Estructuras de datos dinámicas
+│   ├── list.c                   # Implementación de listas enlazadas
+│   └── utils.c                  # Funciones auxiliares (parsing, helpers)
+│
+├── include/                     # Headers organizados (si quieres modularidad)
+│   └── *.h
+│
+├── tests/                       # Casos de prueba
+│   └── test_commands.c
+│
+├── docs/                        # Documentación
+│   ├── README_TECNICO.md        # Explicación completa (detallada)
+│   ├── infoP2.txt               # Especificaciones de memoria/proyecto
+│   └── ejemplos/                # Archivos de prueba para comandos
+│
+├── Makefile                     # Compilación tradicional
+├── CMakeLists.txt               # Opción alternativa con CMake
+├── README.md                    # Versión corta (para recruiters)
+└── .gitignore                   # Ignorar binarios, temporales, etc.
 
 
 ## 🔗 Documentación Técnica  
@@ -37,3 +55,4 @@ Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.
 
 ## 🔗 Documentación Técnica  
 Detalles completos de arquitectura, comandos y algoritmos en el [README_TECNICO.md](README_TECNICO.md).  
+
