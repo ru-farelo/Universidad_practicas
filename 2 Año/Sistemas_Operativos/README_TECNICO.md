@@ -1,10 +1,10 @@
 # Sistemas Operativos - Shell Personalizado en C
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Implementación completa de un **shell interactivo** en C que replica las funcionalidades de shells Unix/Linux modernos. El proyecto incluye gestión de memoria avanzada, manejo de procesos, sistema de archivos y comandos internos, demostrando un dominio profundo de los conceptos fundamentales de sistemas operativos.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Shell interactivo completo**: Intérprete de comandos con prompt personalizado
 - **Gestión de memoria**: Allocación dinámica con malloc, mmap y memoria compartida
@@ -14,7 +14,7 @@ Implementación completa de un **shell interactivo** en C que replica las funcio
 - **Estructuras de datos**: Listas enlazadas dinámicas para gestión interna
 - **Interfaz de usuario**: Colores ANSI y feedback visual mejorado
 
-## 🏗️ Arquitectura del Sistema
+##  Arquitectura del Sistema
 
 ### Núcleo del Shell
 - **`main.c`**: Motor principal del shell con bucle de interpretación
@@ -49,7 +49,7 @@ Implementación completa de un **shell interactivo** en C que replica las funcio
 - **`recurse`**: Función recursiva para testing de stack
 - **Control de señales**: Manejo de SIGINT, SIGTERM, etc.
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Lenguaje**: C estándar (C99/C11)
 - **Compilación**: GCC, CMake, Makefile tradicional
@@ -59,7 +59,7 @@ Implementación completa de un **shell interactivo** en C que replica las funcio
 - **Herramientas**: Valgrind, GDB, strace para debugging
 - **Control de versiones**: Git con .gitignore configurado
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -105,7 +105,7 @@ ShellSO/
     └── ejemplos/            # Archivos de prueba
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Shell Interactivo Avanzado
 - **Parser de comandos**: Análisis sintáctico robusto con tokenización
@@ -131,7 +131,7 @@ ShellSO/
 - **Control de jobs**: Procesos en background y foreground
 - **Recursión controlada**: Testing de límites del stack
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Programación de sistemas**: Desarrollo de bajo nivel en C con APIs del SO
 - **Gestión de memoria**: Implementación de allocadores y debugging de leaks
@@ -141,7 +141,7 @@ ShellSO/
 - **Arquitectura de software**: Diseño modular de sistemas complejos
 - **Optimización de rendimiento**: Algoritmos eficientes para operaciones críticas
 
-## 🎯 Algoritmos y Técnicas del Sistema
+## Algoritmos y Técnicas del Sistema
 
 ### Gestión de Memoria
 - **Allocación dinámica**: Estrategias de malloc con fragmentación mínima
@@ -161,7 +161,7 @@ ShellSO/
 - **Scheduling**: Gestión de orden de ejecución de comandos
 - **Signal handling**: Procesamiento asíncrono de eventos
 
-## 🔬 Características Avanzadas del Sistema
+## Características Avanzadas del Sistema
 
 ### Robustez y Seguridad
 - **Validación de entrada**: Sanitización de comandos maliciosos
@@ -177,7 +177,7 @@ ShellSO/
 
 ---
 
-## 🏛️ Contexto Académico
+##  Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Sistemas Operativos (2021-2022)
 
