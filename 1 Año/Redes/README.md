@@ -1,4 +1,4 @@
-# 🌐 Servidor Web HTTP Multihilo - Java Networks
+# Servidor Web HTTP Multihilo - Java Networks
 
 **Servidor HTTP completo** desarrollado desde cero con Java sockets y programación concurrente  
 **Aplicaciones:** Web servers, network programming, distributed systems, backend development
