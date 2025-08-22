@@ -1,10 +1,10 @@
 # Diseño de Software - Proyecto Java Empresarial
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Conjunto integral de aplicaciones Java que demuestran **principios avanzados de ingeniería de software**, incluyendo diseño orientado a objetos, testing automatizado, y arquitectura empresarial. El proyecto implementa múltiples módulos con diferentes niveles de complejidad, desde algoritmos fundamentales hasta sistemas de gestión completos.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Arquitectura modular**: Separación clara entre lógica de negocio, datos y presentación
 - **Testing exhaustivo**: Cobertura completa con JUnit 5 y casos edge avanzados
@@ -14,7 +14,7 @@ Conjunto integral de aplicaciones Java que demuestran **principios avanzados de 
 - **Algoritmos optimizados**: Implementaciones eficientes para problemas complejos
 - **Documentación UML**: Diagramas estáticos y dinámicos del sistema
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Módulo B1 - Algoritmos Fundamentales
 - **`StringCount.java`**: Procesamiento avanzado de cadenas con optimizaciones
@@ -32,7 +32,7 @@ Conjunto integral de aplicaciones Java que demuestran **principios avanzados de 
 - **Arquitectura empresarial**: Patrones de diseño aplicados
 - **Documentación técnica**: Especificaciones completas del proyecto
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 - **Lenguaje**: Java SE 11+ (Sintaxis moderna, Collections Framework)
 - **Testing**: JUnit 5, Mockito, Test-Driven Development (TDD)
@@ -42,7 +42,7 @@ Conjunto integral de aplicaciones Java que demuestran **principios avanzados de 
 - **Metodología**: Desarrollo ágil, Clean Code, SOLID Principles
 - **Documentación**: JavaDoc, Diagramas técnicos
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -84,7 +84,7 @@ java -cp "out:lib/*" org.junit.platform.console.ConsoleLauncher --scan-classpath
 javadoc -d docs -cp "lib/*" src/**/*.java
 ```
 
-## 🔧 Implementaciones Destacadas
+## Implementaciones Destacadas
 
 ### Procesamiento Avanzado de Cadenas
 - **Conteo de palabras**: Algoritmo robusto con normalización de espacios
@@ -110,7 +110,7 @@ javadoc -d docs -cp "lib/*" src/**/*.java
 - **Algoritmos de transposición**: Manipulación matemática de escalas
 - **Colecciones especializadas**: Gestión eficiente de secuencias musicales
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Ingeniería de software**: Aplicación de principios SOLID y Clean Architecture
 - **Programación orientada a objetos**: Dominio completo de conceptos avanzados
@@ -120,7 +120,7 @@ javadoc -d docs -cp "lib/*" src/**/*.java
 - **Calidad de código**: Refactoring, documentación y mantenibilidad
 - **Resolución de problemas**: Análisis de requisitos y diseño de soluciones
 
-## 🎯 Logros de Ingeniería Alcanzados
+## Logros de Ingeniería Alcanzados
 
 Este proyecto demuestra:
 - **Arquitectura escalable**: Diseño modular preparado para crecimiento empresarial
@@ -130,7 +130,7 @@ Este proyecto demuestra:
 - **Documentación profesional**: UML y especificaciones técnicas completas
 - **Optimización de rendimiento**: Algoritmos eficientes para operaciones críticas
 
-## 🔬 Metodologías Aplicadas
+## Metodologías Aplicadas
 
 ### Desarrollo
 - **Test-Driven Development (TDD)**: Testing como guía del diseño
@@ -146,7 +146,7 @@ Este proyecto demuestra:
 
 ---
 
-## 🏛️ Contexto Académico
+## Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Diseño de Software (2020-2021)
 
