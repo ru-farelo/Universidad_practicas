@@ -1,10 +1,10 @@
 # Servidor Web HTTP - Prácticas de Redes
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Este proyecto implementa un **servidor web HTTP multihilo** desarrollado en Java como parte de las prácticas de la asignatura de Redes de la Universidad de A Coruña (UDC). El servidor es capaz de procesar peticiones HTTP concurrentemente y servir contenido estático y dinámico.
 
-## 🚀 Características Principales
+## Características Principales
 
 - **Servidor HTTP multihilo**: Manejo concurrente de múltiples peticiones de clientes
 - **Arquitectura orientada a objetos**: Implementación modular con separación clara de responsabilidades
@@ -14,7 +14,7 @@ Este proyecto implementa un **servidor web HTTP multihilo** desarrollado en Java
 - **Gestión de errores HTTP**: Páginas de error personalizadas (400, 403, 404)
 - **Sistema de logging**: Registro de accesos y errores del servidor
 
-## 🏗️ Arquitectura del Sistema
+##  Arquitectura del Sistema
 
 ### Componentes Principales
 
@@ -36,7 +36,7 @@ p1-files/                       # Recursos de la práctica 1
 └── javadoc/                    # Documentación generada
 ```
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Lenguajes**: Java SE 8+
 - **Redes**: Sockets TCP/IP, Protocolo HTTP/1.1
@@ -47,7 +47,7 @@ p1-files/                       # Recursos de la práctica 1
 - **Testing**: JUnit (framework preparado)
 - **Documentación**: JavaDoc
 
-## ⚙️ Configuración y Ejecución
+##  Configuración y Ejecución
 
 ### Requisitos Previos
 
@@ -76,7 +76,7 @@ javac -d out src/es/udc/redes/webserver/*.java
 java -cp out es.udc.redes.webserver.WebServer
 ```
 
-## 🔧 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ### Práctica 0 (P0)
 - Configuración del entorno de desarrollo Java
@@ -92,7 +92,7 @@ java -cp out es.udc.redes.webserver.WebServer
 - **Servlets dinámicos**: Arquitectura extensible para contenido generado dinámicamente
 - **Configuración externa**: Sistema de propiedades para parámetros del servidor
 
-## 📈 Competencias Técnicas Demostradas
+## Competencias Técnicas Demostradas
 
 - **Programación de sistemas**: Implementación de servidor de red de alto rendimiento
 - **Programación concurrente**: Gestión avanzada de threads, sincronización y pool de hilos
@@ -102,7 +102,7 @@ java -cp out es.udc.redes.webserver.WebServer
 - **DevOps básico**: Configuración de entornos, gestión de dependencias
 - **Metodologías**: Desarrollo incremental, testing, documentación técnica
 
-## 🎯 Logros Técnicos Alcanzados
+## Logros Técnicos Alcanzados
 
 Este proyecto demuestra la capacidad de:
 - **Arquitectura de sistemas**: Diseñar e implementar un servidor web completo desde cero
@@ -114,7 +114,7 @@ Este proyecto demuestra la capacidad de:
 
 ---
 
-## 🏛️ Contexto Académico
+##  Contexto Académico
 
 **Universidad de A Coruña (UDC)** | Facultad de Informática | Redes (2020-2021)
 
